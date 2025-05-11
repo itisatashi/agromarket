@@ -1,9 +1,7 @@
 import React, { useState, useEffect, useRef } from 'react';
 import { Link } from 'react-router-dom';
 import { 
-  MagnifyingGlassIcon, 
-  MicrophoneIcon, 
-  AdjustmentsHorizontalIcon,
+  MagnifyingGlassIcon,
   MapPinIcon,
   ArrowPathIcon,
   ChevronRightIcon,
@@ -45,6 +43,7 @@ const HomePage: React.FC = () => {
   const [isVoiceListening, setIsVoiceListening] = useState(false);
   const [isLoading, setIsLoading] = useState(false);
   const [userLocation, setUserLocation] = useState<{lat: number, lng: number} | null>(null);
+
   // Use useRef for scroll containers
   const categoryScrollRef = useRef<HTMLDivElement>(null);
   const productsScrollRef = useRef<HTMLDivElement>(null);

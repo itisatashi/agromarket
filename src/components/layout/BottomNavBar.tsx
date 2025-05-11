@@ -7,7 +7,6 @@ import {
   UserIcon,
   ChartBarIcon,
   ArchiveBoxIcon,
-  BellIcon,
 } from "@heroicons/react/24/outline";
 import {
   HomeIcon as HomeIconSolid,
@@ -16,7 +15,6 @@ import {
   UserIcon as UserIconSolid,
   ChartBarIcon as ChartBarIconSolid,
   ArchiveBoxIcon as ArchiveBoxIconSolid,
-  BellIcon as BellIconSolid,
 } from "@heroicons/react/24/solid";
 
 // Define interface for navigation items
@@ -95,7 +93,7 @@ const BottomNavBar: React.FC<BottomNavBarProps> = ({
 }) => {
   const location = useLocation();
   const currentPath = location.pathname;
-  const [hasNotifications, setHasNotifications] = useState(false);
+  const [, setHasNotifications] = useState(false);
   const [isMobile, setIsMobile] = useState(true);
 
   // Check if there are any notifications (for visual indicator)

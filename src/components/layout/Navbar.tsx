@@ -10,7 +10,7 @@ const Navbar: React.FC<NavbarProps> = ({ userRole = 'customer' }) => {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
   const [isLoggedIn, setIsLoggedIn] = useState(true); // For demo purposes, default to logged in
   const [isScrolled, setIsScrolled] = useState(false);
-  const location = useLocation();
+
   
   // For mobile-only approach, detect screen size
   const [isMobile, setIsMobile] = useState(true);

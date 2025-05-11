@@ -1,5 +1,4 @@
 import React, { useState } from 'react';
-import { Link } from 'react-router-dom';
 
 // Mock data for farmer's products
 const mockProducts = [
@@ -77,6 +76,7 @@ const FarmerDashboardPage: React.FC = () => {
   const [activeTab, setActiveTab] = useState<'overview' | 'products' | 'orders'>('overview');
   const [statusFilter, setStatusFilter] = useState<string>('All');
   const [showAddProductModal, setShowAddProductModal] = useState(false);
+
   
   // Filter products based on status
   const filteredProducts = statusFilter === 'All' 

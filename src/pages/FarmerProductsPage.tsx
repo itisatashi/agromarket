@@ -1,5 +1,4 @@
 import React, { useState } from 'react';
-import { Link } from 'react-router-dom';
 
 // Mock product data
 interface Product {
@@ -87,6 +86,7 @@ const FarmerProductsPage: React.FC = () => {
   const [sortBy, setSortBy] = useState('');
   const [isAddModalOpen, setIsAddModalOpen] = useState(false);
   const [selectedProduct, setSelectedProduct] = useState<Product | null>(null);
+
 
   // Filter and sort products
   const filteredProducts = products

@@ -8,7 +8,7 @@ const MainLayout: React.FC = () => {
   const [userRole, setUserRole] = useState<"customer" | "farmer" | "admin">(
     "customer"
   );
-  const isAdminPage = location.pathname.includes("/admin-");
+
 
   // This would normally come from authentication context
   // For now, we'll detect based on URL for demo purposes
