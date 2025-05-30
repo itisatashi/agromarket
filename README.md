@@ -1,4 +1,4 @@
-# AgroMarket - O'zbekiston fermerlar va xaridorlar uchun onlayn bozor
+# AgroMarket - Qoraqalpogʻiston fermerlar va xaridorlar uchun onlayn bozor
 
 <p style="text-align: center;">
   <img src="src/assets/logo.png" alt="AgroMarket logo" width="200"/>
@@ -69,15 +69,9 @@ Loyihani o'z kompyuteringizda ishga tushirish uchun quyidagi ko'rsatmalarni baja
 
 ```
 /src
-  /assets        # Rasmlar, ikonkalar va boshqa statik fayllar
   /components    # Qayta ishlatiladigan UI komponentlari
     /layout      # Asosiy layout komponentlari (Header, Footer, etc.)
-    /ui          # Kichik UI komponentlari (Button, Card, etc.)
-  /contexts      # React context providers
-  /hooks         # Custom React hooks
   /pages         # Asosiy sahifalar
-  /services      # API va boshqa xizmatlar
-  /utils         # Yordamchi funksiyalar
 ```
 
 ## Qo'shimcha buyruqlar
@@ -95,14 +89,6 @@ Loyihani production rejimida `build` papkasiga yig'adi.
 **Eslatma: bu bir tomonlama operatsiya. `eject` qilgandan so'ng, orqaga qayta olmaysiz!**
 
 Agar konfiguratsiya va build vositalarini to'liq nazorat qilishni istasangiz, `eject` buyrug'ini ishlatishingiz mumkin.
-
-## Litsenziya
-
-Bu loyiha MIT litsenziyasi ostida tarqatilgan. Batafsil ma'lumot uchun `LICENSE` faylini ko'ring.
-
-## Muallif
-
-AgroMarket - Ideathon 2025 uchun ishlab chiqilgan loyiha.
 
 ---
 
