@@ -1,6 +1,6 @@
 import React, { useState } from 'react';
 
-// Mock analytics data
+// Namuna tahliliy ma'lumotlar
 interface SalesData {
   date: string;
   revenue: number;
@@ -32,62 +32,62 @@ const mockDailySales: SalesData[] = [
 ];
 
 const mockWeeklySales: SalesData[] = [
-  { date: 'Week 1', revenue: 850.50, orders: 32 },
-  { date: 'Week 2', revenue: 920.75, orders: 38 },
-  { date: 'Week 3', revenue: 1100.25, orders: 45 },
-  { date: 'Week 4', revenue: 980.00, orders: 40 },
+  { date: '1-hafta', revenue: 850.50, orders: 32 },
+  { date: '2-hafta', revenue: 920.75, orders: 38 },
+  { date: '3-hafta', revenue: 1100.25, orders: 45 },
+  { date: '4-hafta', revenue: 980.00, orders: 40 },
 ];
 
 const mockMonthlySales: SalesData[] = [
-  { date: 'Jan', revenue: 3200.50, orders: 125 },
-  { date: 'Feb', revenue: 2800.75, orders: 110 },
+  { date: 'Yan', revenue: 3200.50, orders: 125 },
+  { date: 'Fev', revenue: 2800.75, orders: 110 },
   { date: 'Mar', revenue: 3500.25, orders: 140 },
   { date: 'Apr', revenue: 3800.00, orders: 155 },
   { date: 'May', revenue: 4100.50, orders: 165 },
 ];
 
 const mockTopProducts: ProductPerformance[] = [
-  { id: '1', name: 'Organic Apples', totalSold: 120, revenue: 359.80, averageRating: 4.8 },
-  { id: '3', name: 'Organic Carrots', totalSold: 85, revenue: 169.15, averageRating: 4.5 },
-  { id: '5', name: 'Organic Kale', totalSold: 65, revenue: 161.85, averageRating: 4.7 },
-  { id: '7', name: 'Fresh Tomatoes', totalSold: 95, revenue: 331.55, averageRating: 4.6 },
+  { id: '1', name: 'Organik olmalar', totalSold: 120, revenue: 359.80, averageRating: 4.8 },
+  { id: '3', name: 'Organik sabzilar', totalSold: 85, revenue: 169.15, averageRating: 4.5 },
+  { id: '5', name: 'Organik karam', totalSold: 65, revenue: 161.85, averageRating: 4.7 },
+  { id: '7', name: 'Yangi pomidorlar', totalSold: 95, revenue: 331.55, averageRating: 4.6 },
 ];
 
 const mockCustomerRegions: CustomerData[] = [
-  { region: 'Urban', customers: 250, percentage: 50 },
-  { region: 'Suburban', customers: 150, percentage: 30 },
-  { region: 'Rural', customers: 100, percentage: 20 },
+  { region: 'Shahar', customers: 250, percentage: 50 },
+  { region: 'Shahar atrofi', customers: 150, percentage: 30 },
+  { region: 'Qishloq', customers: 100, percentage: 20 },
 ];
 
 const FarmerAnalyticsPage: React.FC = () => {
   const [timeRange, setTimeRange] = useState<'daily' | 'weekly' | 'monthly'>('weekly');
   
-  // Select sales data based on time range
+  // Vaqt oralig'iga qarab sotuvlar ma'lumotlarini tanlash
   const salesData = timeRange === 'daily' 
     ? mockDailySales 
     : timeRange === 'weekly' 
       ? mockWeeklySales 
       : mockMonthlySales;
   
-  // Calculate total revenue and orders
+  // Jami daromad va buyurtmalarni hisoblash
   const totalRevenue = salesData.reduce((sum, day) => sum + day.revenue, 0);
   const totalOrders = salesData.reduce((sum, day) => sum + day.orders, 0);
   
-  // Calculate average order value
+  // O'rtacha buyurtma qiymatini hisoblash
   const averageOrderValue = totalOrders > 0 ? totalRevenue / totalOrders : 0;
   
-  // Calculate max values for chart scaling
+  // Grafik masshtablash uchun maksimal qiymatlarni hisoblash
   const maxRevenue = Math.max(...salesData.map(day => day.revenue));
   const maxOrders = Math.max(...salesData.map(day => day.orders));
 
   return (
     <div className="container mx-auto px-4 py-6">
-      <h1 className="text-2xl font-bold text-gray-800 mb-6">Analytics Dashboard</h1>
+      <h1 className="text-2xl font-bold text-gray-800 mb-6">Tahliliy boshqaruv paneli</h1>
       
-      {/* Time Range Selector */}
+      {/* Vaqt oralig'ini tanlash */}
       <div className="bg-white rounded-lg shadow-md p-4 mb-6">
         <div className="flex flex-wrap justify-between items-center">
-          <h2 className="text-lg font-medium text-gray-900">Sales Overview</h2>
+          <h2 className="text-lg font-medium text-gray-900">Sotuvlar ko'rsatkichlari</h2>
           <div className="flex space-x-2 mt-2 sm:mt-0">
             <button
               className={`px-3 py-1 text-sm font-medium rounded-md ${
@@ -97,7 +97,7 @@ const FarmerAnalyticsPage: React.FC = () => {
               }`}
               onClick={() => setTimeRange('daily')}
             >
-              Daily
+              Kunlik
             </button>
             <button
               className={`px-3 py-1 text-sm font-medium rounded-md ${
@@ -107,7 +107,7 @@ const FarmerAnalyticsPage: React.FC = () => {
               }`}
               onClick={() => setTimeRange('weekly')}
             >
-              Weekly
+              Haftalik
             </button>
             <button
               className={`px-3 py-1 text-sm font-medium rounded-md ${
@@ -117,49 +117,49 @@ const FarmerAnalyticsPage: React.FC = () => {
               }`}
               onClick={() => setTimeRange('monthly')}
             >
-              Monthly
+              Oylik
             </button>
           </div>
         </div>
       </div>
       
-      {/* Key Metrics */}
+      {/* Asosiy ko'rsatkichlar */}
       <div className="grid grid-cols-1 md:grid-cols-3 gap-6 mb-6">
         <div className="bg-white rounded-lg shadow-md p-6">
-          <h3 className="text-sm font-medium text-gray-500 mb-1">Total Revenue</h3>
-          <p className="text-2xl font-bold text-gray-900">${totalRevenue.toFixed(2)}</p>
+          <h3 className="text-sm font-medium text-gray-500 mb-1">Jami daromad</h3>
+          <p className="text-2xl font-bold text-gray-900">{totalRevenue.toFixed(2)} so'm</p>
           <div className="mt-2 flex items-center text-sm">
             <span className="text-green-500 font-medium">↑ 12.5%</span>
-            <span className="text-gray-500 ml-2">vs. previous period</span>
+            <span className="text-gray-500 ml-2">oldingi davrga nisbatan</span>
           </div>
         </div>
         <div className="bg-white rounded-lg shadow-md p-6">
-          <h3 className="text-sm font-medium text-gray-500 mb-1">Total Orders</h3>
+          <h3 className="text-sm font-medium text-gray-500 mb-1">Jami buyurtmalar</h3>
           <p className="text-2xl font-bold text-gray-900">{totalOrders}</p>
           <div className="mt-2 flex items-center text-sm">
             <span className="text-green-500 font-medium">↑ 8.3%</span>
-            <span className="text-gray-500 ml-2">vs. previous period</span>
+            <span className="text-gray-500 ml-2">oldingi davrga nisbatan</span>
           </div>
         </div>
         <div className="bg-white rounded-lg shadow-md p-6">
-          <h3 className="text-sm font-medium text-gray-500 mb-1">Average Order Value</h3>
-          <p className="text-2xl font-bold text-gray-900">${averageOrderValue.toFixed(2)}</p>
+          <h3 className="text-sm font-medium text-gray-500 mb-1">O'rtacha buyurtma qiymati</h3>
+          <p className="text-2xl font-bold text-gray-900">{averageOrderValue.toFixed(2)} so'm</p>
           <div className="mt-2 flex items-center text-sm">
             <span className="text-green-500 font-medium">↑ 3.7%</span>
-            <span className="text-gray-500 ml-2">vs. previous period</span>
+            <span className="text-gray-500 ml-2">oldingi davrga nisbatan</span>
           </div>
         </div>
       </div>
       
-      {/* Sales Chart */}
+      {/* Sotuvlar grafigi */}
       <div className="bg-white rounded-lg shadow-md p-6 mb-6">
-        <h2 className="text-lg font-medium text-gray-900 mb-4">Sales Trend</h2>
+        <h2 className="text-lg font-medium text-gray-900 mb-4">Sotuvlar tendensiyasi</h2>
         <div className="h-64 relative">
-          {/* This is a simplified chart visualization */}
+          {/* Bu soddalashtirilgan grafik vizualizatsiya */}
           <div className="absolute inset-0 flex items-end">
             {salesData.map((data, index) => (
               <div key={index} className="flex-1 flex flex-col items-center">
-                {/* Revenue bar */}
+                {/* Daromad ustuni */}
                 <div 
                   className="w-4/5 bg-primary rounded-t" 
                   style={{ 
@@ -167,7 +167,7 @@ const FarmerAnalyticsPage: React.FC = () => {
                     maxWidth: '30px'
                   }}
                 ></div>
-                {/* Orders bar */}
+                {/* Buyurtmalar ustuni */}
                 <div 
                   className="w-4/5 bg-secondary mt-1 rounded-t" 
                   style={{ 
@@ -182,34 +182,34 @@ const FarmerAnalyticsPage: React.FC = () => {
             ))}
           </div>
           <div className="absolute top-0 left-0 h-full border-r border-gray-200 flex flex-col justify-between text-xs text-gray-500">
-            <span>${maxRevenue.toFixed(0)}</span>
-            <span>${(maxRevenue / 2).toFixed(0)}</span>
-            <span>$0</span>
+            <span>{maxRevenue.toFixed(0)} so'm</span>
+            <span>{(maxRevenue / 2).toFixed(0)} so'm</span>
+            <span>0 so'm</span>
           </div>
         </div>
         <div className="mt-4 flex justify-center space-x-6">
           <div className="flex items-center">
             <div className="w-3 h-3 bg-primary rounded-full mr-2"></div>
-            <span className="text-sm text-gray-600">Revenue</span>
+            <span className="text-sm text-gray-600">Daromad</span>
           </div>
           <div className="flex items-center">
             <div className="w-3 h-3 bg-secondary rounded-full mr-2"></div>
-            <span className="text-sm text-gray-600">Orders</span>
+            <span className="text-sm text-gray-600">Buyurtmalar</span>
           </div>
         </div>
       </div>
       
-      {/* Top Products */}
+      {/* Eng yaxshi mahsulotlar */}
       <div className="bg-white rounded-lg shadow-md p-6 mb-6">
-        <h2 className="text-lg font-medium text-gray-900 mb-4">Top Performing Products</h2>
+        <h2 className="text-lg font-medium text-gray-900 mb-4">Eng ko'p sotilgan mahsulotlar</h2>
         <div className="overflow-x-auto">
           <table className="min-w-full divide-y divide-gray-200">
             <thead className="bg-gray-50">
               <tr>
-                <th className="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">Product</th>
-                <th className="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">Units Sold</th>
-                <th className="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">Revenue</th>
-                <th className="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">Avg. Rating</th>
+                <th className="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">Mahsulot</th>
+                <th className="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">Sotilgan miqdor</th>
+                <th className="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">Daromad</th>
+                <th className="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">O'rt. baho</th>
               </tr>
             </thead>
             <tbody className="bg-white divide-y divide-gray-200">
@@ -217,7 +217,7 @@ const FarmerAnalyticsPage: React.FC = () => {
                 <tr key={product.id}>
                   <td className="px-6 py-4 whitespace-nowrap text-sm font-medium text-gray-900">{product.name}</td>
                   <td className="px-6 py-4 whitespace-nowrap text-sm text-gray-500">{product.totalSold}</td>
-                  <td className="px-6 py-4 whitespace-nowrap text-sm text-gray-500">${product.revenue.toFixed(2)}</td>
+                  <td className="px-6 py-4 whitespace-nowrap text-sm text-gray-500">{product.revenue.toFixed(2)} so'm</td>
                   <td className="px-6 py-4 whitespace-nowrap">
                     <div className="flex items-center">
                       <span className="text-sm text-gray-900 mr-2">{product.averageRating.toFixed(1)}</span>
@@ -242,12 +242,12 @@ const FarmerAnalyticsPage: React.FC = () => {
         </div>
       </div>
       
-      {/* Customer Demographics */}
+      {/* Mijozlar demografiyasi */}
       <div className="bg-white rounded-lg shadow-md p-6">
-        <h2 className="text-lg font-medium text-gray-900 mb-4">Customer Demographics</h2>
+        <h2 className="text-lg font-medium text-gray-900 mb-4">Mijozlar demografiyasi</h2>
         <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
           <div>
-            <h3 className="text-sm font-medium text-gray-500 mb-3">Customer Regions</h3>
+            <h3 className="text-sm font-medium text-gray-500 mb-3">Mijozlar hududlari</h3>
             <div className="space-y-4">
               {mockCustomerRegions.map((region) => (
                 <div key={region.region}>
@@ -266,7 +266,7 @@ const FarmerAnalyticsPage: React.FC = () => {
             </div>
           </div>
           <div>
-            <h3 className="text-sm font-medium text-gray-500 mb-3">Customer Satisfaction</h3>
+            <h3 className="text-sm font-medium text-gray-500 mb-3">Mijozlar mamnuniyati</h3>
             <div className="flex items-center justify-center h-full">
               <div className="relative w-40 h-40">
                 <svg viewBox="0 0 36 36" className="w-full h-full">
@@ -291,7 +291,7 @@ const FarmerAnalyticsPage: React.FC = () => {
                 </svg>
                 <div className="absolute inset-0 flex flex-col items-center justify-center">
                   <span className="text-3xl font-bold text-gray-900">85%</span>
-                  <span className="text-sm text-gray-500">Satisfied</span>
+                  <span className="text-sm text-gray-500">Mamnun</span>
                 </div>
               </div>
             </div>

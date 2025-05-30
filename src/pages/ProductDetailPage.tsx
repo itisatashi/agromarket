@@ -5,8 +5,8 @@ import { useParams, Link } from 'react-router-dom';
 const mockProducts = [
   {
     id: 1,
-    name: 'Fresh Organic Tomatoes',
-    description: 'Locally grown organic tomatoes, perfect for salads and cooking. Our tomatoes are grown without synthetic pesticides or fertilizers, ensuring you get the purest, most flavorful produce possible. We harvest them at peak ripeness to maximize both nutrition and taste.',
+    name: 'Yangi organik pomidorlar',
+    description: 'Mahalliy yetishtirilgan organik pomidorlar, salat va ovqat pishirish uchun juda mos. Bizning pomidorlarimiz sun’iy pestitsidlar yoki o‘g‘itlarsiz yetishtirilgan, shuning uchun siz eng sof va mazali mahsulotni olasiz. Ular eng pishgan vaqtda terib olinadi, bu esa foydalilik va mazani oshiradi.',
     price: 2.99,
     unit: 'lb',
     images: [
@@ -15,67 +15,68 @@ const mockProducts = [
       'https://images.unsplash.com/photo-1524593166156-312f362cada0?ixlib=rb-1.2.1&auto=format&fit=crop&w=500&q=60'
     ],
     seller: {
-      name: 'Green Valley Farm',
+      name: 'Yashil Vodiy Fermasi',
       image: 'https://images.unsplash.com/photo-1542080681-b52d382432af?ixlib=rb-1.2.1&auto=format&fit=crop&w=100&q=80',
-      location: 'Riverside, CA',
+      location: 'Riverside, Kaliforniya',
       since: 2015
     },
-    category: 'Vegetables',
+    category: 'Sabzavotlar',
     organic: true,
     availableQuantity: 50,
     harvestedDate: '2025-05-01',
-    nutritionFacts: 'Rich in vitamins A and C, potassium, and lycopene.',
+    nutritionFacts: 'A va C vitaminlari, kaliy va likopen bilan boyitilgan.',
     relatedProducts: [2, 5, 7]
   },
   {
     id: 2,
-    name: 'Farm Fresh Eggs',
-    description: 'Free-range eggs from pasture-raised chickens. Our hens roam freely on green pastures and are fed a natural diet supplemented with organic grains. This results in eggs with vibrant orange yolks and exceptional flavor.',
+    name: 'Fermadan yangi tuxumlar',
+    description: 'Yashil yaylovlarda erkin yuradigan tovuqlardan olingan tuxumlar. Tovuqlarimiz tabiiy, organik donlar bilan oziqlanadi. Bu esa tuxumlarning sarig‘i yorqin va ta’mi alohida bo‘lishini ta’minlaydi.',
     price: 4.50,
-    unit: 'dozen',
+    unit: 'dona (12 ta)',
     images: [
       'https://images.unsplash.com/photo-1598965675045-45c5e72c7d05?ixlib=rb-1.2.1&auto=format&fit=crop&w=500&q=60',
       'https://images.unsplash.com/photo-1587486913049-53fc88980cfc?ixlib=rb-1.2.1&auto=format&fit=crop&w=500&q=60',
       'https://images.unsplash.com/photo-1510130146128-7a7b6afb6f55?ixlib=rb-1.2.1&auto=format&fit=crop&w=500&q=60'
     ],
     seller: {
-      name: 'Sunny Side Farm',
+      name: 'Quyoshli Tomon Ferma',
       image: 'https://images.unsplash.com/photo-1542080681-b52d382432af?ixlib=rb-1.2.1&auto=format&fit=crop&w=100&q=80',
-      location: 'Boulder, CO',
+      location: 'Boulder, Kolorado',
       since: 2018
     },
-    category: 'Dairy',
+    category: 'Sut mahsulotlari',
     organic: true,
     availableQuantity: 30,
     harvestedDate: '2025-05-03',
-    nutritionFacts: 'Excellent source of protein, vitamin D, and B vitamins.',
+    nutritionFacts: 'Protein, D vitamini va B guruh vitaminlariga boy.',
     relatedProducts: [6, 9, 1]
   },
   {
     id: 5,
-    name: 'Organic Kale',
-    description: 'Nutrient-dense kale grown without pesticides. Our kale is carefully tended and harvested at the perfect stage for maximum tenderness and flavor.',
+    name: 'Organik karavay',
+    description: 'Pestitsidlarsiz yetishtirilgan foydali karavay. Karavayimiz ehtiyotkorlik bilan parvarish qilinadi va eng yumshoq va mazali bosqichda terib olinadi.',
     price: 2.49,
-    unit: 'bunch',
+    unit: 'dasta',
     images: [
       'https://images.unsplash.com/photo-1524179091875-bf99a9a6af57?ixlib=rb-1.2.1&auto=format&fit=crop&w=500&q=60',
       'https://images.unsplash.com/photo-1515543904379-3d757abe3d10?ixlib=rb-1.2.1&auto=format&fit=crop&w=500&q=60',
       'https://images.unsplash.com/photo-1594282486552-05a9f0a53f09?ixlib=rb-1.2.1&auto=format&fit=crop&w=500&q=60'
     ],
     seller: {
-      name: 'Green Thumb Gardens',
+      name: 'Yashil Barmoqlar Bog‘i',
       image: 'https://images.unsplash.com/photo-1542080681-b52d382432af?ixlib=rb-1.2.1&auto=format&fit=crop&w=100&q=80',
-      location: 'Eugene, OR',
+      location: 'Eugene, Oregon',
       since: 2016
     },
-    category: 'Vegetables',
+    category: 'Sabzavotlar',
     organic: true,
     availableQuantity: 25,
     harvestedDate: '2025-05-02',
-    nutritionFacts: 'Packed with vitamins K, A, and C, as well as antioxidants and fiber.',
+    nutritionFacts: 'K, A va C vitaminlariga, antioksidantlar va tolalarga boy.',
     relatedProducts: [1, 7, 11]
   }
 ];
+
 
 const ProductDetailPage: React.FC = () => {
   const { id } = useParams<{ id: string }>();
@@ -102,7 +103,7 @@ const ProductDetailPage: React.FC = () => {
         <nav className="flex mb-8" aria-label="Breadcrumb">
           <ol className="flex items-center space-x-2">
             <li>
-              <Link to="/app" className="text-text-secondary hover:text-primary">Home</Link>
+              <Link to="/app" className="text-text-secondary hover:text-primary">Bosh sahifa</Link>
             </li>
             <li className="flex items-center">
               <svg className="h-5 w-5 text-text-secondary" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor">
@@ -110,7 +111,7 @@ const ProductDetailPage: React.FC = () => {
               </svg>
             </li>
             <li>
-              <Link to="/app/products" className="text-text-secondary hover:text-primary">Products</Link>
+              <Link to="/app/products" className="text-text-secondary hover:text-primary">Mahsulotlar</Link>
             </li>
             <li className="flex items-center">
               <svg className="h-5 w-5 text-text-secondary" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor">
@@ -157,19 +158,19 @@ const ProductDetailPage: React.FC = () => {
                 <h1 className="text-3xl font-extrabold text-text-primary">{product.name}</h1>
                 <div className="mt-2">
                   <span className="text-2xl font-bold text-primary">${product.price?.toFixed(2) || '0.00'}</span>
-                  <span className="ml-2 text-text-secondary">per {product.unit}</span>
+                  <span className="ml-2 text-text-secondary">{product.unit} uchun</span>
                 </div>
               </div>
               {product.organic && (
                 <span className="inline-flex items-center px-3 py-1 rounded-full text-sm font-medium bg-green-100 text-green-800">
-                  Organic
+                  Organik
                 </span>
               )}
             </div>
             
             {/* Product Description */}
             <div className="mt-6">
-              <h2 className="text-lg font-medium text-text-primary">Description</h2>
+              <h2 className="text-lg font-medium text-text-primary">Tavsif</h2>
               <div className="mt-2 space-y-4 text-text-secondary">
                 <p>{product.description}</p>
               </div>
@@ -177,38 +178,38 @@ const ProductDetailPage: React.FC = () => {
             
             {/* Product Details */}
             <div className="mt-8 border-t border-gray-200 pt-8">
-              <h2 className="text-lg font-medium text-text-primary">Details</h2>
+              <h2 className="text-lg font-medium text-text-primary">Tafsilotlar</h2>
               <div className="mt-4 grid grid-cols-1 gap-y-4 sm:grid-cols-2 sm:gap-x-6">
                 <div className="flex items-center">
                   <svg xmlns="http://www.w3.org/2000/svg" className="h-5 w-5 text-primary" fill="none" viewBox="0 0 24 24" stroke="currentColor">
                     <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M7 7h.01M7 3h5c.512 0 1.024.195 1.414.586l7 7a2 2 0 010 2.828l-7 7a2 2 0 01-2.828 0l-7-7A1.994 1.994 0 013 12V7a4 4 0 014-4z" />
                   </svg>
-                  <span className="ml-2 text-text-secondary">Category: {product.category}</span>
+                  <span className="ml-2 text-text-secondary">Kategoriya: {product.category}</span>
                 </div>
                 <div className="flex items-center">
                   <svg xmlns="http://www.w3.org/2000/svg" className="h-5 w-5 text-primary" fill="none" viewBox="0 0 24 24" stroke="currentColor">
                     <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M8 7V3m8 4V3m-9 8h10M5 21h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v12a2 2 0 002 2z" />
                   </svg>
-                  <span className="ml-2 text-text-secondary">Harvested: {product.harvestedDate}</span>
+                  <span className="ml-2 text-text-secondary">Yig'ilgan sana: {product.harvestedDate}</span>
                 </div>
                 <div className="flex items-center">
                   <svg xmlns="http://www.w3.org/2000/svg" className="h-5 w-5 text-primary" fill="none" viewBox="0 0 24 24" stroke="currentColor">
                     <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M3 6l3 1m0 0l-3 9a5.002 5.002 0 006.001 0M6 7l3 9M6 7l6-2m6 2l3-1m-3 1l-3 9a5.002 5.002 0 006.001 0M18 7l3 9m-3-9l-6-2m0-2v2m0 16V5m0 16H9m3 0h3" />
                   </svg>
-                  <span className="ml-2 text-text-secondary">Available: {product.availableQuantity} {product.unit}s</span>
+                  <span className="ml-2 text-text-secondary">Mavjud: {product.availableQuantity} {product.unit}</span>
                 </div>
                 <div className="flex items-center">
                   <svg xmlns="http://www.w3.org/2000/svg" className="h-5 w-5 text-primary" fill="none" viewBox="0 0 24 24" stroke="currentColor">
                     <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M13 10V3L4 14h7v7l9-11h-7z" />
                   </svg>
-                  <span className="ml-2 text-text-secondary">Nutrition: {product.nutritionFacts}</span>
+                  <span className="ml-2 text-text-secondary">Ozuqaviy qiymati: {product.nutritionFacts}</span>
                 </div>
               </div>
             </div>
             
             {/* Seller Information */}
             <div className="mt-8 border-t border-gray-200 pt-8">
-              <h2 className="text-lg font-medium text-text-primary">Seller Information</h2>
+              <h2 className="text-lg font-medium text-text-primary">Sotuvchi haqida ma'lumot</h2>
               <div className="mt-4 flex items-center">
                 <img
                   src={product.seller.image}
@@ -224,10 +225,10 @@ const ProductDetailPage: React.FC = () => {
                     </svg>
                     {product.seller.location}
                   </div>
-                  <div className="text-sm text-text-secondary">Selling since {product.seller.since}</div>
+                  <div className="text-sm text-text-secondary">{product.seller.since} yildan beri sotuvda</div>
                 </div>
                 <button className="ml-auto btn-secondary text-sm">
-                  Contact Seller
+                  Sotuvchi bilan bog'lanish
                 </button>
               </div>
             </div>
@@ -264,10 +265,10 @@ const ProductDetailPage: React.FC = () => {
                   </button>
                 </div>
                 <span className="ml-4 text-text-secondary">
-                  Total: <span className="font-medium text-text-primary">${((product.price || 0) * quantity).toFixed(2)}</span>
+                  Jami: <span className="font-medium text-text-primary">${((product.price || 0) * quantity).toFixed(2)}</span>
                 </span>
                 <button className="ml-auto btn-primary">
-                  Add to Cart
+                  Savatga qo'shish
                 </button>
               </div>
             </div>
@@ -276,7 +277,7 @@ const ProductDetailPage: React.FC = () => {
         
         {/* Related Products */}
         <div className="mt-16 border-t border-gray-200 pt-8">
-          <h2 className="text-2xl font-bold text-text-primary">Related Products</h2>
+          <h2 className="text-2xl font-bold text-text-primary">O'xshash mahsulotlar</h2>
           <div className="mt-6 grid grid-cols-1 gap-y-10 gap-x-6 sm:grid-cols-2 lg:grid-cols-3">
             {relatedProducts.map((relatedProduct) => relatedProduct && (
               <div key={relatedProduct.id} className="group relative bg-white rounded-lg shadow-sm overflow-hidden">

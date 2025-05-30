@@ -1,4 +1,5 @@
 import React, { useState } from 'react';
+import { Link } from 'react-router-dom';
 import { 
   UserIcon, 
   MapPinIcon, 
@@ -26,8 +27,6 @@ interface User {
     type: 'billing' | 'shipping';
     street: string;
     city: string;
-    state: string;
-    zipCode: string;
     country: string;
     isDefault: boolean;
   }[];
@@ -42,30 +41,18 @@ interface User {
 
 const mockUser: User = {
   id: 'USR-001',
-  name: 'John Doe',
-  email: 'john.doe@example.com',
-  phone: '+1 (555) 123-4567',
+  name: 'Isnatdinov Islam',
+  email: 'isnatdinov.islam@gmail.com',
+  phone: '+998991234567',
   role: 'customer',
   avatar: 'https://images.unsplash.com/photo-1472099645785-5658abf4ff4e?ixlib=rb-1.2.1&auto=format&fit=facearea&facepad=2&w=256&h=256&q=80',
   addresses: [
     {
       id: 'ADDR-001',
       type: 'shipping',
-      street: '123 Main St',
-      city: 'Anytown',
-      state: 'CA',
-      zipCode: '12345',
-      country: 'USA',
-      isDefault: true,
-    },
-    {
-      id: 'ADDR-002',
-      type: 'billing',
-      street: '456 Oak Ave',
-      city: 'Somewhere',
-      state: 'NY',
-      zipCode: '67890',
-      country: 'USA',
+      street: 'Qarligash kochasi N7 uy',
+      city: 'Nukus',
+      country: 'Uzbekistan',
       isDefault: true,
     },
   ],
@@ -76,12 +63,7 @@ const mockUser: User = {
       lastFour: '4242',
       expiryDate: '04/25',
       isDefault: true,
-    },
-    {
-      id: 'PAY-002',
-      type: 'paypal',
-      isDefault: false,
-    },
+    }
   ],
 };
 
@@ -122,18 +104,17 @@ const ProfilePage: React.FC<ProfilePageProps> = ({ userRole = 'customer' }) => {
   const getTabs = () => {
     if (userRole === 'farmer') {
       return [
-        { id: 'profile', label: 'Profile', icon: <UserIcon className="w-5 h-5" /> },
-        { id: 'farm', label: 'Farm', icon: <BuildingStorefrontIcon className="w-5 h-5" /> },
-        { id: 'banking', label: 'Banking', icon: <BanknotesIcon className="w-5 h-5" /> },
-        { id: 'addresses', label: 'Addresses', icon: <MapPinIcon className="w-5 h-5" /> },
-        { id: 'preferences', label: 'Preferences', icon: <BellIcon className="w-5 h-5" /> }
+        { id: 'profile', label: 'Profil', icon: <UserIcon className="w-5 h-5" /> },
+        { id: 'farm', label: 'Ferma', icon: <BuildingStorefrontIcon className="w-5 h-5" /> },
+        { id: 'banking', label: 'Bank', icon: <BanknotesIcon className="w-5 h-5" /> },
+        { id: 'preferences', label: 'Boshqarish', icon: <BellIcon className="w-5 h-5" /> }
       ];
     } else {
       return [
-        { id: 'profile', label: 'Profile', icon: <UserIcon className="w-5 h-5" /> },
-        { id: 'addresses', label: 'Addresses', icon: <MapPinIcon className="w-5 h-5" /> },
-        { id: 'payment', label: 'Payment', icon: <CreditCardIcon className="w-5 h-5" /> },
-        { id: 'preferences', label: 'Preferences', icon: <BellIcon className="w-5 h-5" /> }
+        { id: 'profile', label: 'Profil', icon: <UserIcon className="w-5 h-5" /> },
+        { id: 'addresses', label: 'Manzillar', icon: <MapPinIcon className="w-5 h-5" /> },
+        { id: 'payment', label: `To'lov`, icon: <CreditCardIcon className="w-5 h-5" /> },
+        { id: 'preferences', label: 'Boshqarish', icon: <BellIcon className="w-5 h-5" /> }
       ];
     }
   };
@@ -162,7 +143,7 @@ const ProfilePage: React.FC<ProfilePageProps> = ({ userRole = 'customer' }) => {
               <p className="text-white/80 text-sm">{user.email}</p>
               <div className="mt-2">
                 <span className="inline-block px-3 py-1 text-xs font-semibold rounded-full bg-white/20 backdrop-blur-sm">
-                  {userRole === 'farmer' ? 'Farmer' : 'Customer'}
+                  {userRole === 'farmer' ? 'Fermer' : 'Xaridor'}
                 </span>
               </div>
             </div>
@@ -196,7 +177,7 @@ const ProfilePage: React.FC<ProfilePageProps> = ({ userRole = 'customer' }) => {
           {activeTab === 'profile' && (
             <div className="p-4">
               <div className="flex justify-between items-center mb-4">
-                <h2 className="text-lg font-semibold text-gray-800">Personal Information</h2>
+                <h2 className="text-lg font-semibold text-gray-800">Shaxsiy ma'lumotlar</h2>
                 <button
                   className={`text-${primaryColor} hover:text-${primaryColor}/80 flex items-center text-sm font-medium`}
                   onClick={() => setIsEditing(!isEditing)}
@@ -204,12 +185,12 @@ const ProfilePage: React.FC<ProfilePageProps> = ({ userRole = 'customer' }) => {
                   {isEditing ? (
                     <>
                       <XMarkIcon className="w-4 h-4 mr-1" />
-                      Cancel
+                      Bekor qilish
                     </>
                   ) : (
                     <>
                       <PencilIcon className="w-4 h-4 mr-1" />
-                      Edit
+                      Tahrirlash
                     </>
                   )}
                 </button>
@@ -220,7 +201,7 @@ const ProfilePage: React.FC<ProfilePageProps> = ({ userRole = 'customer' }) => {
                   <div className="space-y-4">
                     <div>
                       <label htmlFor="name" className="block text-sm font-medium text-gray-700 mb-1">
-                        Full Name
+                        To'liq ism
                       </label>
                       <input
                         type="text"
@@ -229,12 +210,12 @@ const ProfilePage: React.FC<ProfilePageProps> = ({ userRole = 'customer' }) => {
                         value={formData.name}
                         onChange={handleInputChange}
                         className="w-full px-4 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-offset-2 focus:ring-primary focus:outline-none transition-colors"
-                        placeholder="Your full name"
+                        placeholder="To'liq ismingiz"
                       />
                     </div>
                     <div>
                       <label htmlFor="email" className="block text-sm font-medium text-gray-700 mb-1">
-                        Email Address
+                        Elektron pochta
                       </label>
                       <input
                         type="email"
@@ -243,12 +224,12 @@ const ProfilePage: React.FC<ProfilePageProps> = ({ userRole = 'customer' }) => {
                         value={formData.email}
                         onChange={handleInputChange}
                         className="w-full px-4 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-offset-2 focus:ring-primary focus:outline-none transition-colors"
-                        placeholder="your.email@example.com"
+                        placeholder="sizning.email@misol.com"
                       />
                     </div>
                     <div>
                       <label htmlFor="phone" className="block text-sm font-medium text-gray-700 mb-1">
-                        Phone Number
+                        Telefon raqami
                       </label>
                       <input
                         type="tel"
@@ -257,7 +238,7 @@ const ProfilePage: React.FC<ProfilePageProps> = ({ userRole = 'customer' }) => {
                         value={formData.phone}
                         onChange={handleInputChange}
                         className="w-full px-4 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-offset-2 focus:ring-primary focus:outline-none transition-colors"
-                        placeholder="+1 (123) 456-7890"
+                        placeholder="+998 (xx) xxx-xxxx"
                       />
                     </div>
                   </div>
@@ -268,7 +249,7 @@ const ProfilePage: React.FC<ProfilePageProps> = ({ userRole = 'customer' }) => {
                     >
                       <div className="flex items-center justify-center">
                         <CheckIcon className="w-4 h-4 mr-2" />
-                        Save Changes
+                        O'zgarishlarni saqlash
                       </div>
                     </button>
                   </div>
@@ -279,7 +260,7 @@ const ProfilePage: React.FC<ProfilePageProps> = ({ userRole = 'customer' }) => {
                     <div className="space-y-4">
                       <div className="flex items-center border-b border-gray-200 pb-3">
                         <div className="w-1/3">
-                          <span className="text-sm font-medium text-gray-500">Full Name</span>
+                          <span className="text-sm font-medium text-gray-500">To'liq ism</span>
                         </div>
                         <div className="w-2/3">
                           <span className="text-sm text-gray-900">{user.name}</span>
@@ -287,7 +268,7 @@ const ProfilePage: React.FC<ProfilePageProps> = ({ userRole = 'customer' }) => {
                       </div>
                       <div className="flex items-center border-b border-gray-200 pb-3">
                         <div className="w-1/3">
-                          <span className="text-sm font-medium text-gray-500">Email</span>
+                          <span className="text-sm font-medium text-gray-500">Elektron pochta</span>
                         </div>
                         <div className="w-2/3">
                           <span className="text-sm text-gray-900">{user.email}</span>
@@ -295,7 +276,7 @@ const ProfilePage: React.FC<ProfilePageProps> = ({ userRole = 'customer' }) => {
                       </div>
                       <div className="flex items-center border-b border-gray-200 pb-3">
                         <div className="w-1/3">
-                          <span className="text-sm font-medium text-gray-500">Phone</span>
+                          <span className="text-sm font-medium text-gray-500">Telefon</span>
                         </div>
                         <div className="w-2/3">
                           <span className="text-sm text-gray-900">{user.phone}</span>
@@ -303,7 +284,7 @@ const ProfilePage: React.FC<ProfilePageProps> = ({ userRole = 'customer' }) => {
                       </div>
                       <div className="flex items-center">
                         <div className="w-1/3">
-                          <span className="text-sm font-medium text-gray-500">Account Type</span>
+                          <span className="text-sm font-medium text-gray-500">Hisob turi</span>
                         </div>
                         <div className="w-2/3">
                           <span className="text-sm text-gray-900 capitalize">{userRole}</span>
@@ -313,35 +294,35 @@ const ProfilePage: React.FC<ProfilePageProps> = ({ userRole = 'customer' }) => {
                   </div>
                   
                   <div className="bg-gray-50 rounded-lg p-4">
-                    <h3 className="text-sm font-semibold text-gray-800 mb-3">Account Security</h3>
+                    <h3 className="text-sm font-semibold text-gray-800 mb-3">Hisob xavfsizligi</h3>
                     <div className="space-y-3">
                       <div className="flex justify-between items-center">
                         <div>
-                          <p className="text-sm font-medium text-gray-700">Password</p>
-                          <p className="text-xs text-gray-500">Last changed 3 months ago</p>
+                          <p className="text-sm font-medium text-gray-700">Parol</p>
+                          <p className="text-xs text-gray-500">Oxirgi o'zgartirilgan vaqt: 3 oy oldin</p>
                         </div>
                         <button className={`text-${primaryColor} text-sm font-medium flex items-center`}>
-                          Change
+                          O'zgartirish
                           <ChevronRightIcon className="w-4 h-4 ml-1" />
                         </button>
                       </div>
                       <div className="flex justify-between items-center">
                         <div>
-                          <p className="text-sm font-medium text-gray-700">Two-Factor Authentication</p>
-                          <p className="text-xs text-gray-500">Not enabled</p>
+                          <p className="text-sm font-medium text-gray-700">Ikki bosqichli autentifikatsiya</p>
+                          <p className="text-xs text-gray-500">Yoqilmagan</p>
                         </div>
                         <button className={`text-${primaryColor} text-sm font-medium flex items-center`}>
-                          Enable
+                          Yoqish
                           <ChevronRightIcon className="w-4 h-4 ml-1" />
                         </button>
                       </div>
                     </div>
                     <hr className="my-4" />
                     <div className="flex justify-center">
-                      <button className="text-white bg-red-500 hover:bg-red-600 text-sm font-medium flex items-center justify-center px-4 py-2 rounded-lg w-full">
+                      <Link to="/login" className="text-white bg-red-500 hover:bg-red-600 text-sm font-medium flex items-center justify-center px-4 py-2 rounded-lg w-full">
                         <svg className="w-5 h-5 mr-1" fill="none" stroke="currentColor" strokeWidth="2" viewBox="0 0 24 24"><path strokeLinecap="round" strokeLinejoin="round" d="M17 16l4-4m0 0l-4-4m4 4H7m6 4v1a2 2 0 01-2 2H7a2 2 0 01-2-2V7a2 2 0 012-2h4a2 2 0 012 2v1" /></svg>
-                        Log out
-                      </button>
+                        Chiqish
+                      </Link >
                     </div>
                   </div>
                 </div>
@@ -354,10 +335,10 @@ const ProfilePage: React.FC<ProfilePageProps> = ({ userRole = 'customer' }) => {
         {activeTab === 'addresses' && (
           <div className="p-4">
             <div className="flex justify-between items-center mb-4">
-              <h2 className="text-lg font-semibold text-gray-800">Your Addresses</h2>
+              <h2 className="text-lg font-semibold text-gray-800">Sizning manzillaringiz</h2>
               <button className={`text-${primaryColor} hover:text-${primaryColor}/80 flex items-center text-sm font-medium`}>
                 <PlusCircleIcon className="w-4 h-4 mr-1" />
-                Add New Address
+                Yangi manzil qo'shish
               </button>
             </div>
 
@@ -368,7 +349,7 @@ const ProfilePage: React.FC<ProfilePageProps> = ({ userRole = 'customer' }) => {
                     <div className="flex justify-between">
                       <div>
                         <h3 className="text-sm font-medium text-gray-900 capitalize flex items-center">
-                          {address.type} Address
+                          {address.type === 'shipping' ? 'Yetkazib berish' : 'Tolov'} manzili
                           {address.isDefault && (
                             <span className="ml-2 inline-flex items-center px-2 py-0.5 rounded-full text-xs font-medium bg-green-100 text-green-800">
                               Default
@@ -388,7 +369,7 @@ const ProfilePage: React.FC<ProfilePageProps> = ({ userRole = 'customer' }) => {
                     <div className="mt-3 text-sm text-gray-500 space-y-1">
                       <p>{address.street}</p>
                       <p>
-                        {address.city}, {address.state} {address.zipCode}
+                        {address.city}
                       </p>
                       <p>{address.country}</p>
                     </div>
@@ -396,7 +377,7 @@ const ProfilePage: React.FC<ProfilePageProps> = ({ userRole = 'customer' }) => {
                   <div className="bg-gray-50 px-4 py-3 border-t border-gray-200">
                     <div className="flex justify-between items-center">
                       <span className="text-xs text-gray-500">
-                        {address.isDefault ? 'Default address for shipping' : 'Set as default'}
+                        {address.isDefault ? 'Yetkazib berish uchun asosiy manzil' : 'Asosiy sifatida belgilash'}
                       </span>
                       {!address.isDefault && (
                         <button className={`text-${primaryColor} text-sm font-medium`}>
@@ -415,10 +396,10 @@ const ProfilePage: React.FC<ProfilePageProps> = ({ userRole = 'customer' }) => {
         {activeTab === 'payment' && (
           <div className="p-4">
             <div className="flex justify-between items-center mb-4">
-              <h2 className="text-lg font-semibold text-gray-800">Payment Methods</h2>
+              <h2 className="text-lg font-semibold text-gray-800">To'lov usullari</h2>
               <button className={`text-${primaryColor} hover:text-${primaryColor}/80 flex items-center text-sm font-medium`}>
                 <PlusCircleIcon className="w-4 h-4 mr-1" />
-                Add Payment Method
+                To'lov usulini qo'shish
               </button>
             </div>
 
@@ -429,7 +410,7 @@ const ProfilePage: React.FC<ProfilePageProps> = ({ userRole = 'customer' }) => {
                     <div className="flex justify-between">
                       <div>
                         <h3 className="text-sm font-medium text-gray-900 flex items-center">
-                          {method.type === 'credit_card' ? 'Credit Card' : 'PayPal'}
+                          {method.type === 'credit_card' ? 'Kredit karta' : 'PayPal'}
                           {method.isDefault && (
                             <span className="ml-2 inline-flex items-center px-2 py-0.5 rounded-full text-xs font-medium bg-green-100 text-green-800">
                               Default
@@ -456,7 +437,7 @@ const ProfilePage: React.FC<ProfilePageProps> = ({ userRole = 'customer' }) => {
                           </div>
                           <div>
                             <p className="text-sm text-gray-900">•••• •••• •••• {method.lastFour}</p>
-                            <p className="text-xs text-gray-500">Expires {method.expiryDate}</p>
+                            <p className="text-xs text-gray-500">Amal qilish muddati: {method.expiryDate}</p>
                           </div>
                         </div>
                       )}
@@ -478,7 +459,7 @@ const ProfilePage: React.FC<ProfilePageProps> = ({ userRole = 'customer' }) => {
                   <div className="bg-gray-50 px-4 py-3 border-t border-gray-200">
                     <div className="flex justify-between items-center">
                       <span className="text-xs text-gray-500">
-                        {method.isDefault ? 'Default payment method' : 'Set as default'}
+                        {method.isDefault ? 'Asosiy to\'lov usuli' : 'Asosiy sifatida belgilash'}
                       </span>
                       {!method.isDefault && (
                         <button className={`text-${primaryColor} text-sm font-medium`}>
@@ -497,7 +478,7 @@ const ProfilePage: React.FC<ProfilePageProps> = ({ userRole = 'customer' }) => {
         {activeTab === 'preferences' && (
           <div className="p-4">
             <div className="mb-4">
-              <h2 className="text-lg font-semibold text-gray-800 mb-4">Notification Preferences</h2>
+              <h2 className="text-lg font-semibold text-gray-800 mb-4">Bildirishnoma sozlamalari</h2>
               
               <div className="bg-white border border-gray-200 rounded-lg shadow-sm overflow-hidden">
                 <div className="p-4 space-y-4">
@@ -511,10 +492,10 @@ const ProfilePage: React.FC<ProfilePageProps> = ({ userRole = 'customer' }) => {
                     </div>
                     <div>
                       <label htmlFor="order-updates" className="text-sm font-medium text-gray-700 cursor-pointer">
-                        Order Updates
+                        Buyurtma yangilanishlari
                       </label>
                       <p className="text-xs text-gray-500 mt-1">
-                        Receive notifications about your order status and shipping updates.
+                        Buyurtmangiz holati va yetkazib berish yangiliklari haqida bildirishnomalarni oling.
                       </p>
                     </div>
                   </div>
@@ -529,10 +510,10 @@ const ProfilePage: React.FC<ProfilePageProps> = ({ userRole = 'customer' }) => {
                     </div>
                     <div>
                       <label htmlFor="promotions" className="text-sm font-medium text-gray-700 cursor-pointer">
-                        Promotions and Deals
+                        Aksiyalar va takliflar
                       </label>
                       <p className="text-xs text-gray-500 mt-1">
-                        Receive notifications about special offers, discounts, and seasonal deals.
+                        Maxsus takliflar, chegirmalar va mavsumiy aksiyalar haqida bildirishnomalarni oling.
                       </p>
                     </div>
                   </div>
@@ -547,10 +528,10 @@ const ProfilePage: React.FC<ProfilePageProps> = ({ userRole = 'customer' }) => {
                     </div>
                     <div>
                       <label htmlFor="newsletter" className="text-sm font-medium text-gray-700 cursor-pointer">
-                        Newsletter
+                        Yangiliklar
                       </label>
                       <p className="text-xs text-gray-500 mt-1">
-                        Receive our monthly newsletter with farming tips and recipes.
+                        Fermerlik maslahatlari va retseptlari bilan oylik yangiliklar byulletenini oling.
                       </p>
                     </div>
                   </div>
@@ -559,7 +540,7 @@ const ProfilePage: React.FC<ProfilePageProps> = ({ userRole = 'customer' }) => {
             </div>
             
             <div className="mt-6 mb-4">
-              <h2 className="text-lg font-semibold text-gray-800 mb-4">App Preferences</h2>
+              <h2 className="text-lg font-semibold text-gray-800 mb-4">Ilova sozlamalari</h2>
               
               <div className="bg-white border border-gray-200 rounded-lg shadow-sm overflow-hidden">
                 <div className="p-4 space-y-4">
@@ -573,10 +554,10 @@ const ProfilePage: React.FC<ProfilePageProps> = ({ userRole = 'customer' }) => {
                     </div>
                     <div>
                       <label htmlFor="dark-mode" className="text-sm font-medium text-gray-700 cursor-pointer">
-                        Dark Mode
+                        Qorong'i rejim
                       </label>
                       <p className="text-xs text-gray-500 mt-1">
-                        Use dark theme for the application.
+                        Ilova uchun qorong'i mavzudan foydalaning.
                       </p>
                     </div>
                   </div>
@@ -586,7 +567,7 @@ const ProfilePage: React.FC<ProfilePageProps> = ({ userRole = 'customer' }) => {
             
             <div className="mt-6 flex justify-end">
               <button className={`px-6 py-2 bg-${primaryColor} text-white font-medium rounded-lg hover:bg-${primaryColor}/90 transition-colors focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-${primaryColor}`}>
-                Save Preferences
+                Sozlamalarni saqlash
               </button>
             </div>
           </div>
@@ -596,10 +577,10 @@ const ProfilePage: React.FC<ProfilePageProps> = ({ userRole = 'customer' }) => {
         {activeTab === 'farm' && userRole === 'farmer' && (
           <div className="p-4">
             <div className="flex justify-between items-center mb-4">
-              <h2 className="text-lg font-semibold text-gray-800">Farm Details</h2>
+              <h2 className="text-lg font-semibold text-gray-800">Ferma ma'lumotlari</h2>
               <button className={`text-${primaryColor} hover:text-${primaryColor}/80 flex items-center text-sm font-medium`}>
                 <PencilIcon className="w-4 h-4 mr-1" />
-                Edit
+                Tahrirlash
               </button>
             </div>
             
@@ -608,80 +589,46 @@ const ProfilePage: React.FC<ProfilePageProps> = ({ userRole = 'customer' }) => {
                 <div className="space-y-4">
                   <div className="flex items-center border-b border-gray-200 pb-3">
                     <div className="w-1/3">
-                      <span className="text-sm font-medium text-gray-500">Farm Name</span>
+                      <span className="text-sm font-medium text-gray-500">Ferma nomi</span>
                     </div>
                     <div className="w-2/3">
-                      <span className="text-sm text-gray-900">Green Valley Organics</span>
+                      <span className="text-sm text-gray-900">Alpamosh</span>
                     </div>
                   </div>
                   
                   <div className="flex items-center border-b border-gray-200 pb-3">
                     <div className="w-1/3">
-                      <span className="text-sm font-medium text-gray-500">Farm Type</span>
+                      <span className="text-sm font-medium text-gray-500">Ferma turi</span>
                     </div>
                     <div className="w-2/3">
-                      <span className="text-sm text-gray-900">Organic Produce</span>
+                      <span className="text-sm text-gray-900">Organik mahsulotlar</span>
                     </div>
                   </div>
                   
                   <div className="flex items-center border-b border-gray-200 pb-3">
                     <div className="w-1/3">
-                      <span className="text-sm font-medium text-gray-500">Location</span>
+                      <span className="text-sm font-medium text-gray-500">Joylashuv</span>
                     </div>
                     <div className="w-2/3">
-                      <span className="text-sm text-gray-900">Anytown, CA, USA</span>
+                      <span className="text-sm text-gray-900">Bahor mahallasi,Xorazm, Uzbekistan</span>
                     </div>
                   </div>
                   
                   <div className="flex items-center border-b border-gray-200 pb-3">
                     <div className="w-1/3">
-                      <span className="text-sm font-medium text-gray-500">Size</span>
+                      <span className="text-sm font-medium text-gray-500">Hajmi</span>
                     </div>
                     <div className="w-2/3">
-                      <span className="text-sm text-gray-900">25 acres</span>
+                      <span className="text-sm text-gray-900">25 gektar</span>
                     </div>
                   </div>
                   
                   <div className="flex items-start">
                     <div className="w-1/3">
-                      <span className="text-sm font-medium text-gray-500">Description</span>
+                      <span className="text-sm font-medium text-gray-500">Tavsif</span>
                     </div>
                     <div className="w-2/3">
-                      <p className="text-sm text-gray-900">Green Valley Organics is a family-owned farm specializing in organic fruits and vegetables. We've been farming using sustainable practices for over 15 years.</p>
-                    </div>
-                  </div>
-                </div>
-              </div>
-            </div>
-            
-            <div className="mt-6">
-              <h3 className="text-md font-semibold text-gray-800 mb-4">Certifications</h3>
-              
-              <div className="bg-white border border-gray-200 rounded-lg shadow-sm overflow-hidden">
-                <div className="p-4">
-                  <div className="space-y-4">
-                    <div className="flex justify-between items-center border-b border-gray-200 pb-3">
-                      <div>
-                        <h4 className="text-sm font-medium text-gray-900">USDA Organic</h4>
-                        <p className="text-xs text-gray-500">Expires: 12/31/2025</p>
-                      </div>
-                      <div>
-                        <span className="inline-flex items-center px-2.5 py-0.5 rounded-full text-xs font-medium bg-green-100 text-green-800">
-                          Active
-                        </span>
-                      </div>
-                    </div>
-                    
-                    <div className="flex justify-between items-center">
-                      <div>
-                        <h4 className="text-sm font-medium text-gray-900">Non-GMO Project Verified</h4>
-                        <p className="text-xs text-gray-500">Expires: 06/30/2025</p>
-                      </div>
-                      <div>
-                        <span className="inline-flex items-center px-2.5 py-0.5 rounded-full text-xs font-medium bg-green-100 text-green-800">
-                          Active
-                        </span>
-                      </div>
+                      <p className="text-sm text-gray-900">Yashil Vodiy Organik - bu organik meva va sabzavotlarga ixtisoslashgan oilaviy ferma. Biz 15 yildan ortiq vaqt davomida barqaror amaliyotlardan foydalangan holda dehqonchilik qilib kelmoqdamiz.</p>
                     </div>
                   </div>
                 </div>
@@ -694,10 +641,10 @@ const ProfilePage: React.FC<ProfilePageProps> = ({ userRole = 'customer' }) => {
         {activeTab === 'banking' && userRole === 'farmer' && (
           <div className="p-4">
             <div className="flex justify-between items-center mb-4">
-              <h2 className="text-lg font-semibold text-gray-800">Banking Information</h2>
+              <h2 className="text-lg font-semibold text-gray-800">Bank ma'lumotlari</h2>
               <button className={`text-${primaryColor} hover:text-${primaryColor}/80 flex items-center text-sm font-medium`}>
                 <PencilIcon className="w-4 h-4 mr-1" />
-                Edit
+                Tahrirlash
               </button>
             </div>
             
@@ -706,34 +653,34 @@ const ProfilePage: React.FC<ProfilePageProps> = ({ userRole = 'customer' }) => {
                 <div className="space-y-4">
                   <div className="flex items-center border-b border-gray-200 pb-3">
                     <div className="w-1/3">
-                      <span className="text-sm font-medium text-gray-500">Account Holder</span>
+                      <span className="text-sm font-medium text-gray-500">Hisob egasi</span>
                     </div>
                     <div className="w-2/3">
-                      <span className="text-sm text-gray-900">John Doe</span>
+                      <span className="text-sm text-gray-900">Islam Isnatdinov</span>
                     </div>
                   </div>
                   
                   <div className="flex items-center border-b border-gray-200 pb-3">
                     <div className="w-1/3">
-                      <span className="text-sm font-medium text-gray-500">Bank Name</span>
+                      <span className="text-sm font-medium text-gray-500">Bank nomi</span>
                     </div>
                     <div className="w-2/3">
-                      <span className="text-sm text-gray-900">First National Bank</span>
+                      <span className="text-sm text-gray-900">Turan Bank</span>
                     </div>
                   </div>
                   
                   <div className="flex items-center border-b border-gray-200 pb-3">
                     <div className="w-1/3">
-                      <span className="text-sm font-medium text-gray-500">Account Type</span>
+                      <span className="text-sm font-medium text-gray-500">Hisob turi</span>
                     </div>
                     <div className="w-2/3">
-                      <span className="text-sm text-gray-900">Business Checking</span>
+                      <span className="text-sm text-gray-900">Biznes hisob</span>
                     </div>
                   </div>
                   
                   <div className="flex items-center border-b border-gray-200 pb-3">
                     <div className="w-1/3">
-                      <span className="text-sm font-medium text-gray-500">Account Number</span>
+                      <span className="text-sm font-medium text-gray-500">Hisob raqami</span>
                     </div>
                     <div className="w-2/3">
                       <span className="text-sm text-gray-900">••••••••5678</span>
@@ -742,7 +689,7 @@ const ProfilePage: React.FC<ProfilePageProps> = ({ userRole = 'customer' }) => {
                   
                   <div className="flex items-center">
                     <div className="w-1/3">
-                      <span className="text-sm font-medium text-gray-500">Routing Number</span>
+                      <span className="text-sm font-medium text-gray-500">Bank routing raqami</span>
                     </div>
                     <div className="w-2/3">
                       <span className="text-sm text-gray-900">••••••1234</span>
@@ -753,45 +700,45 @@ const ProfilePage: React.FC<ProfilePageProps> = ({ userRole = 'customer' }) => {
             </div>
             
             <div className="mt-6">
-              <h3 className="text-md font-semibold text-gray-800 mb-4">Payment History</h3>
+              <h3 className="text-md font-semibold text-gray-800 mb-4">To'lovlar tarixi</h3>
               
               <div className="bg-white border border-gray-200 rounded-lg shadow-sm overflow-hidden">
                 <div className="p-4">
                   <div className="space-y-4">
                     <div className="flex justify-between items-center border-b border-gray-200 pb-3">
                       <div>
-                        <h4 className="text-sm font-medium text-gray-900">May 2025 Payout</h4>
-                        <p className="text-xs text-gray-500">Processed on May 5, 2025</p>
+                        <h4 className="text-sm font-medium text-gray-900">2025-yil may to'lovi</h4>
+                        <p className="text-xs text-gray-500">2025-yil 5-mayda qayta ishlangan</p>
                       </div>
                       <div>
-                        <span className="text-sm font-medium text-gray-900">$1,245.00</span>
+                        <span className="text-sm font-medium text-gray-900">1 245,00 so'm</span>
                       </div>
                     </div>
                     
                     <div className="flex justify-between items-center border-b border-gray-200 pb-3">
                       <div>
-                        <h4 className="text-sm font-medium text-gray-900">April 2025 Payout</h4>
-                        <p className="text-xs text-gray-500">Processed on April 5, 2025</p>
+                        <h4 className="text-sm font-medium text-gray-900">2025-yil aprel to'lovi</h4>
+                        <p className="text-xs text-gray-500">2025-yil 5-aprelda qayta ishlangan</p>
                       </div>
                       <div>
-                        <span className="text-sm font-medium text-gray-900">$987.50</span>
+                        <span className="text-sm font-medium text-gray-900">987,50 so'm</span>
                       </div>
                     </div>
                     
                     <div className="flex justify-between items-center">
                       <div>
-                        <h4 className="text-sm font-medium text-gray-900">March 2025 Payout</h4>
-                        <p className="text-xs text-gray-500">Processed on March 5, 2025</p>
+                        <h4 className="text-sm font-medium text-gray-900">2025-yil mart to'lovi</h4>
+                        <p className="text-xs text-gray-500">2025-yil 5-martda qayta ishlangan</p>
                       </div>
                       <div>
-                        <span className="text-sm font-medium text-gray-900">$1,102.75</span>
+                        <span className="text-sm font-medium text-gray-900">1 102,75 so'm</span>
                       </div>
                     </div>
                   </div>
                 </div>
                 <div className="bg-gray-50 px-4 py-3 border-t border-gray-200">
                   <button className={`text-${primaryColor} text-sm font-medium flex items-center`}>
-                    View All Transactions
+                    Barcha tranzaksiyalarni ko'rish
                     <ChevronRightIcon className="w-4 h-4 ml-1" />
                   </button>
                 </div>

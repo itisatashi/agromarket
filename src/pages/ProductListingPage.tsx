@@ -5,201 +5,203 @@ import { Link } from 'react-router-dom';
 const mockProducts = [
   {
     id: 1,
-    name: 'Fresh Organic Tomatoes',
-    description: 'Locally grown organic tomatoes, perfect for salads and cooking.',
+    name: 'Yangi Organik Pomidorlar',
+    description: 'Mahalliy yetishtirilgan organik pomidorlar, salatlar va taomlar uchun juda mos.',
     price: 2.99,
-    unit: 'lb',
+    unit: 'funt',
     image: 'https://images.unsplash.com/photo-1592924357228-91a4daadcfea?ixlib=rb-1.2.1&auto=format&fit=crop&w=500&q=60',
     seller: {
-      name: 'Green Valley Farm',
+      name: 'Yashil Vodi Qishlog‘i',
       image: 'https://images.unsplash.com/photo-1507497806-a3c9eae7e071?ixlib=rb-1.2.1&auto=format&fit=crop&w=100&q=80'
     },
-    category: 'Vegetables',
+    category: 'Sabzavotlar',
     organic: true,
-    location: 'Riverside, CA'
+    location: 'Riverside, Kaliforniya'
   },
   {
     id: 2,
-    name: 'Farm Fresh Eggs',
-    description: 'Free-range eggs from pasture-raised chickens.',
+    name: 'Fermer Tuxumlari',
+    description: 'Erkin yuradigan tovuqlardan olingan yangi tuxumlar.',
     price: 4.50,
-    unit: 'dozen',
+    unit: 'dona (12 ta)',
     image: 'https://images.unsplash.com/photo-1598965675045-45c5e72c7d05?ixlib=rb-1.2.1&auto=format&fit=crop&w=500&q=60',
     seller: {
-      name: 'Sunny Side Farm',
+      name: 'Quyoshli Fermasi',
       image: 'https://images.unsplash.com/photo-1542080681-b52d382432af?ixlib=rb-1.2.1&auto=format&fit=crop&w=100&q=80'
     },
-    category: 'Dairy',
+    category: 'Sut mahsulotlari',
     organic: true,
-    location: 'Boulder, CO'
+    location: 'Boulder, Kolorado'
   },
   {
     id: 3,
-    name: 'Organic Honey',
-    description: 'Raw, unfiltered honey from local wildflowers.',
+    name: 'Organik Asal',
+    description: 'Mahalliy gullardan olinadigan xom va filtrlanmagan asal.',
     price: 8.99,
-    unit: 'jar',
+    unit: 'bankada',
     image: 'https://images.unsplash.com/photo-1587049352851-8d4e89133924?ixlib=rb-1.2.1&auto=format&fit=crop&w=500&q=60',
     seller: {
-      name: 'Bee Haven Apiaries',
+      name: 'Asalarilar Qal’asi',
       image: 'https://images.unsplash.com/photo-1531123897727-8f129e1688ce?ixlib=rb-1.2.1&auto=format&fit=crop&w=100&q=80'
     },
-    category: 'Other',
+    category: 'Boshqalar',
     organic: true,
-    location: 'Portland, OR'
+    location: 'Portlend, Oregon'
   },
   {
     id: 4,
-    name: 'Fresh Strawberries',
-    description: 'Sweet, juicy strawberries picked at peak ripeness.',
+    name: 'Yangi Qulupnaylar',
+    description: 'Eng pishgan paytda terilgan shirin va sharbali qulupnaylar.',
     price: 3.99,
-    unit: 'pint',
+    unit: 'qadoq (pint)',
     image: 'https://images.unsplash.com/photo-1464965911861-746a04b4bca6?ixlib=rb-1.2.1&auto=format&fit=crop&w=500&q=60',
     seller: {
-      name: 'Berry Good Farm',
+      name: 'Berry Good Ferma',
       image: 'https://images.unsplash.com/photo-1580489944761-15a19d654956?ixlib=rb-1.2.1&auto=format&fit=crop&w=100&q=80'
     },
-    category: 'Fruits',
+    category: 'Mevalar',
     organic: true,
-    location: 'Santa Cruz, CA'
+    location: 'Santa Kruz, Kaliforniya'
   },
   {
     id: 5,
-    name: 'Organic Kale',
-    description: 'Nutrient-dense kale grown without pesticides.',
+    name: 'Organik Kale',
+    description: 'Zararkunandalarga qarshi kimyoviy moddalarsiz yetishtirilgan to‘yimli kale.',
     price: 2.49,
-    unit: 'bunch',
+    unit: 'bog‘lam',
     image: 'https://images.unsplash.com/photo-1524179091875-bf99a9a6af57?ixlib=rb-1.2.1&auto=format&fit=crop&w=500&q=60',
     seller: {
-      name: 'Green Thumb Gardens',
+      name: 'Yashil Barmoqlar Bog‘i',
       image: 'https://images.unsplash.com/photo-1500648767791-00dcc994a43e?ixlib=rb-1.2.1&auto=format&fit=crop&w=100&q=80'
     },
-    category: 'Vegetables',
+    category: 'Sabzavotlar',
     organic: true,
-    location: 'Eugene, OR'
+    location: 'Eugene, Oregon'
   },
   {
     id: 6,
-    name: 'Artisanal Goat Cheese',
-    description: 'Creamy, tangy goat cheese made in small batches.',
+    name: 'Qo‘ydan Tayyorlangan Pishloq',
+    description: 'Mayin va nordon ta’mli, kichik partiyalarda tayyorlangan qo‘y pishlog‘i.',
     price: 6.99,
     unit: '8 oz',
     image: 'https://images.unsplash.com/photo-1559561853-08451507cbe7?ixlib=rb-1.2.1&auto=format&fit=crop&w=500&q=60',
     seller: {
-      name: 'Happy Goat Dairy',
+      name: 'Baxtli Qo‘y Fermasi',
       image: 'https://images.unsplash.com/photo-1534528741775-53994a69daeb?ixlib=rb-1.2.1&auto=format&fit=crop&w=100&q=80'
     },
-    category: 'Dairy',
+    category: 'Sut mahsulotlari',
     organic: true,
-    location: 'Sonoma, CA'
+    location: 'Sonoma, Kaliforniya'
   },
   {
     id: 7,
-    name: 'Heirloom Carrots',
-    description: 'Colorful, flavorful heirloom carrots, perfect for roasting.',
+    name: 'Qadimiy Sabzi',
+    description: 'Turli rangdagi va mazali qadimiy sabzilar, pishirish uchun juda mos.',
     price: 3.49,
-    unit: 'bunch',
+    unit: 'bog‘lam',
     image: 'https://images.unsplash.com/photo-1447175008436-054170c2e979?ixlib=rb-1.2.1&auto=format&fit=crop&w=500&q=60',
     seller: {
-      name: 'Rainbow Farm',
+      name: 'Kamalak Ferma',
       image: 'https://images.unsplash.com/photo-1438761681033-6461ffad8d80?ixlib=rb-1.2.1&auto=format&fit=crop&w=100&q=80'
     },
-    category: 'Vegetables',
+    category: 'Sabzavotlar',
     organic: true,
-    location: 'Madison, WI'
+    location: 'Madison, Viskonsin'
   },
   {
     id: 8,
-    name: 'Fresh Baked Bread',
-    description: 'Artisanal sourdough bread baked fresh daily.',
+    name: 'Yangi Pishirilgan Non',
+    description: 'Har kuni yangi pishiriladigan kislotali non.',
     price: 5.99,
-    unit: 'loaf',
+    unit: 'dona',
     image: 'https://images.unsplash.com/photo-1509440159596-0249088772ff?ixlib=rb-1.2.1&auto=format&fit=crop&w=500&q=60',
     seller: {
-      name: 'Countryside Bakery',
+      name: 'Qishloq Non Pishiruvchilari',
       image: 'https://images.unsplash.com/photo-1472099645785-5658abf4ff4e?ixlib=rb-1.2.1&auto=format&fit=crop&w=100&q=80'
     },
-    category: 'Baked Goods',
+    category: 'Non mahsulotlari',
     organic: false,
-    location: 'Austin, TX'
+    location: 'Ostin, Texas'
   },
   {
     id: 9,
-    name: 'Grass-Fed Ground Beef',
-    description: 'Lean ground beef from grass-fed, pasture-raised cattle.',
+    name: 'Yaylov Sigir Go‘shti',
+    description: 'Yaylovda boqilgan sigirlardan olingan yog‘siz mol go‘shti.',
     price: 7.99,
-    unit: 'lb',
+    unit: 'funt',
     image: 'https://images.unsplash.com/photo-1551135049-8a33b5883817?ixlib=rb-1.2.1&auto=format&fit=crop&w=500&q=60',
     seller: {
-      name: 'Green Pastures Ranch',
+      name: 'Yashil Yaylovlar Ferma',
       image: 'https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?ixlib=rb-1.2.1&auto=format&fit=crop&w=100&q=80'
     },
-    category: 'Meat',
+    category: 'Go‘sht',
     organic: false,
-    location: 'Bozeman, MT'
+    location: 'Bozeman, Montana'
   },
   {
     id: 10,
-    name: 'Organic Blueberries',
-    description: 'Sweet, plump blueberries grown without pesticides.',
+    name: 'Organik Ko‘k Mevalar',
+    description: 'Zararkunandalarsiz o‘stirilgan shirin, dumaloq ko‘k mevalar.',
     price: 4.99,
     unit: 'pint',
     image: 'https://images.unsplash.com/photo-1498557850523-fd3d118b962e?ixlib=rb-1.2.1&auto=format&fit=crop&w=500&q=60',
     seller: {
-      name: 'Berry Patch Farms',
+      name: 'Berry Patch Fermasi',
       image: 'https://images.unsplash.com/photo-1544005313-94ddf0286df2?ixlib=rb-1.2.1&auto=format&fit=crop&w=100&q=80'
     },
-    category: 'Fruits',
+    category: 'Mevalar',
     organic: true,
-    location: 'Burlington, VT'
+    location: 'Burlington, Vermont'
   },
   {
     id: 11,
-    name: 'Fresh Basil',
-    description: 'Aromatic basil, perfect for Italian dishes and pesto.',
+    name: 'Yangi Rayhon',
+    description: 'Xushbo‘y rayhon, italyan taomlari va pesto uchun ideal.',
     price: 2.49,
-    unit: 'bunch',
+    unit: 'bog‘lam',
     image: 'https://images.unsplash.com/photo-1600326145552-327c4b33f350?ixlib=rb-1.2.1&auto=format&fit=crop&w=500&q=60',
     seller: {
-      name: 'Herb Haven',
+      name: 'O‘simliklar Bog‘i',
       image: 'https://images.unsplash.com/photo-1546961329-78bef0414d7c?ixlib=rb-1.2.1&auto=format&fit=crop&w=100&q=80'
     },
-    category: 'Herbs',
+    category: 'Giyohlar',
     organic: true,
-    location: 'Providence, RI'
+    location: 'Providens, Rod-Aylend'
   },
   {
     id: 12,
-    name: 'Maple Syrup',
-    description: 'Pure maple syrup harvested from local sugar maples.',
+    name: 'Tabiiy Qaymoq Siropi',
+    description: 'Mahalliy zarang daraxtlaridan olingan sof qaymoq siropi.',
     price: 12.99,
-    unit: 'bottle',
+    unit: 'shisha',
     image: 'https://images.unsplash.com/photo-1589496933738-f5c27bc146e3?ixlib=rb-1.2.1&auto=format&fit=crop&w=500&q=60',
     seller: {
-      name: 'Northwoods Sugar Shack',
+      name: 'Shimoliy O‘rmon Shirinligi',
       image: 'https://images.unsplash.com/photo-1552058544-f2b08422138a?ixlib=rb-1.2.1&auto=format&fit=crop&w=100&q=80'
     },
-    category: 'Other',
+    category: 'Boshqalar',
     organic: false,
-    location: 'Burlington, VT'
+    location: 'Burlington, Vermont'
   }
 ];
 
+
 // Categories for filter
 const categories = [
-  'All',
-  'Vegetables',
-  'Fruits',
-  'Dairy',
-  'Meat',
-  'Baked Goods',
-  'Herbs',
-  'Other'
+  'Barchasi',
+  'Sabzavotlar',
+  'Mevalar',
+  'Sut mahsulotlari',
+  'Go‘sht',
+  'Non mahsulotlari',
+  'Giyohlar',
+  'Boshqalar'
 ];
+
 
 const ProductListingPage: React.FC = () => {
   const [searchTerm, setSearchTerm] = useState('');
-  const [selectedCategory, setSelectedCategory] = useState('All');
+  const [selectedCategory, setSelectedCategory] = useState('Barchasi');
   const [priceRange, setPriceRange] = useState({ min: 0, max: 20 });
   const [organicOnly, setOrganicOnly] = useState(false);
   const [sortBy, setSortBy] = useState('newest');
@@ -208,7 +210,7 @@ const ProductListingPage: React.FC = () => {
   const filteredProducts = mockProducts.filter(product => {
     const matchesSearch = product.name.toLowerCase().includes(searchTerm.toLowerCase()) || 
                          product.description.toLowerCase().includes(searchTerm.toLowerCase());
-    const matchesCategory = selectedCategory === 'All' || product.category === selectedCategory;
+    const matchesCategory = selectedCategory === 'Barchasi' || product.category === selectedCategory;
     const matchesPriceRange = product.price >= priceRange.min && product.price <= priceRange.max;
     const matchesOrganic = !organicOnly || product.organic;
     
@@ -229,7 +231,7 @@ const ProductListingPage: React.FC = () => {
   return (
     <div className="bg-background">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-8">
-        <h1 className="text-3xl font-extrabold text-text-primary mb-8">Browse Products</h1>
+        <h1 className="text-3xl font-extrabold text-text-primary mb-8">Mahsulotlarni ko'rish</h1>
         
         {/* Search and Sort */}
         <div className="flex flex-col md:flex-row justify-between mb-8 gap-4">
@@ -237,7 +239,7 @@ const ProductListingPage: React.FC = () => {
             <div className="relative">
               <input
                 type="text"
-                placeholder="Search products..."
+                placeholder="Mahsulotlarni qidirish..."
                 className="w-full p-3 border border-gray-300 rounded-md focus:ring-primary focus:border-primary"
                 value={searchTerm}
                 onChange={(e) => setSearchTerm(e.target.value)}
@@ -255,9 +257,9 @@ const ProductListingPage: React.FC = () => {
               value={sortBy}
               onChange={(e) => setSortBy(e.target.value)}
             >
-              <option value="newest">Newest</option>
-              <option value="price-low">Price: Low to High</option>
-              <option value="price-high">Price: High to Low</option>
+              <option value="newest">Eng yangi</option>
+              <option value="price-low">Narx: Pastdan yuqoriga</option>
+              <option value="price-high">Narx: Yuqoridan pastga</option>
             </select>
           </div>
         </div>
@@ -266,11 +268,11 @@ const ProductListingPage: React.FC = () => {
           {/* Filters */}
           <div className="w-full lg:w-1/4">
             <div className="bg-white p-6 rounded-lg shadow-sm">
-              <h2 className="text-lg font-bold text-text-primary mb-4">Filters</h2>
+              <h2 className="text-lg font-bold text-text-primary mb-4">Filtrlar</h2>
               
               {/* Category Filter */}
               <div className="mb-6">
-                <h3 className="text-sm font-medium text-text-primary mb-2">Category</h3>
+                <h3 className="text-sm font-medium text-text-primary mb-2">Kategoriya</h3>
                 <div className="space-y-2">
                   {categories.map(category => (
                     <div key={category} className="flex items-center">
@@ -292,7 +294,7 @@ const ProductListingPage: React.FC = () => {
               
               {/* Price Range Filter */}
               <div className="mb-6">
-                <h3 className="text-sm font-medium text-text-primary mb-2">Price Range</h3>
+                <h3 className="text-sm font-medium text-text-primary mb-2">Narx oralig'i</h3>
                 <div className="flex items-center space-x-2">
                   <span className="text-sm text-text-secondary">${priceRange.min}</span>
                   <input
@@ -320,7 +322,7 @@ const ProductListingPage: React.FC = () => {
                     className="h-4 w-4 text-primary focus:ring-primary border-gray-300 rounded"
                   />
                   <label htmlFor="organic-only" className="ml-3 text-sm text-text-secondary">
-                    Organic Only
+                    Faqat organik
                   </label>
                 </div>
               </div>
@@ -334,7 +336,7 @@ const ProductListingPage: React.FC = () => {
                   setOrganicOnly(false);
                 }}
               >
-                Reset Filters
+                Filtrlarni tiklash
               </button>
             </div>
           </div>
@@ -372,14 +374,14 @@ const ProductListingPage: React.FC = () => {
                         </div>
                         {product.organic && (
                           <span className="inline-flex items-center px-2 py-0.5 rounded text-xs font-medium bg-green-100 text-green-800">
-                            Organic
+                            Organik
                           </span>
                         )}
                       </div>
                       
                       <div className="mt-4">
                         <button className="w-full btn-primary text-center">
-                          Add to Cart
+                          Savatga qo'shish
                         </button>
                       </div>
                     </div>
@@ -391,8 +393,8 @@ const ProductListingPage: React.FC = () => {
                 <svg xmlns="http://www.w3.org/2000/svg" className="h-12 w-12 mx-auto text-text-secondary" fill="none" viewBox="0 0 24 24" stroke="currentColor">
                   <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={1} d="M9.172 16.172a4 4 0 015.656 0M9 10h.01M15 10h.01M21 12a9 9 0 11-18 0 9 9 0 0118 0z" />
                 </svg>
-                <h3 className="mt-4 text-lg font-medium text-text-primary">No products found</h3>
-                <p className="mt-2 text-text-secondary">Try adjusting your filters or search term.</p>
+                <h3 className="mt-4 text-lg font-medium text-text-primary">Mahsulotlar topilmadi</h3>
+                <p className="mt-2 text-text-secondary">Filtrlaringizni yoki qidiruv so'zingizni o'zgartirib ko'ring.</p>
               </div>
             )}
             
@@ -401,7 +403,7 @@ const ProductListingPage: React.FC = () => {
               <div className="mt-8 flex justify-center">
                 <nav className="inline-flex rounded-md shadow-sm -space-x-px" aria-label="Pagination">
                   <a href="#" className="relative inline-flex items-center px-2 py-2 rounded-l-md border border-gray-300 bg-white text-sm font-medium text-text-secondary hover:bg-gray-50">
-                    <span className="sr-only">Previous</span>
+                    <span className="sr-only">Oldingi</span>
                     <svg className="h-5 w-5" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20" fill="currentColor" aria-hidden="true">
                       <path fillRule="evenodd" d="M12.707 5.293a1 1 0 010 1.414L9.414 10l3.293 3.293a1 1 0 01-1.414 1.414l-4-4a1 1 0 010-1.414l4-4a1 1 0 011.414 0z" clipRule="evenodd" />
                     </svg>
@@ -413,7 +415,7 @@ const ProductListingPage: React.FC = () => {
                     2
                   </a>
                   <a href="#" className="relative inline-flex items-center px-2 py-2 rounded-r-md border border-gray-300 bg-white text-sm font-medium text-text-secondary hover:bg-gray-50">
-                    <span className="sr-only">Next</span>
+                    <span className="sr-only">Keyingi</span>
                     <svg className="h-5 w-5" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20" fill="currentColor" aria-hidden="true">
                       <path fillRule="evenodd" d="M7.293 14.707a1 1 0 010-1.414L10.586 10 7.293 6.707a1 1 0 011.414-1.414l4 4a1 1 0 010 1.414l-4 4a1 1 0 01-1.414 0z" clipRule="evenodd" />
                     </svg>

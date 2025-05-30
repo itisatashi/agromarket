@@ -5,33 +5,33 @@ import { Link } from "react-router-dom";
 const initialCartItems = [
   {
     id: 1,
-    name: "Fresh Organic Tomatoes",
+    name: "Yangi Organik Pomidorlar",
     price: 2.99,
     quantity: 2,
-    unit: "lb",
+    unit: "funt",
     image:
       "https://images.unsplash.com/photo-1592924357228-91a4daadcfea?ixlib=rb-1.2.1&auto=format&fit=crop&w=500&q=60",
-    seller: "Green Valley Farm",
+    seller: "Yashil Vodi Qishlog'i",
   },
   {
     id: 5,
-    name: "Organic Kale",
+    name: "Organik Kale",
     price: 2.49,
     quantity: 1,
-    unit: "bunch",
+    unit: "bog'lam",
     image:
       "https://images.unsplash.com/photo-1524179091875-bf99a9a6af57?ixlib=rb-1.2.1&auto=format&fit=crop&w=500&q=60",
-    seller: "Green Thumb Gardens",
+    seller: "Yashil Barmoqlar Bog'i",
   },
   {
     id: 3,
-    name: "Organic Honey",
+    name: "Organik Asal",
     price: 8.99,
     quantity: 1,
-    unit: "jar",
+    unit: "bankada",
     image:
       "https://images.unsplash.com/photo-1587049352851-8d4e89133924?ixlib=rb-1.2.1&auto=format&fit=crop&w=500&q=60",
-    seller: "Bee Haven Apiaries",
+    seller: "Asalarilar Qal'asi",
   },
 ];
 
@@ -87,7 +87,7 @@ const CartPage: React.FC = () => {
     <div className="bg-background">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-12">
         <h1 className="text-3xl font-extrabold text-text-primary mb-8">
-          Your Cart
+          Sizning savatingiz
         </h1>
 
         {cartItems.length > 0 ? (
@@ -117,14 +117,14 @@ const CartPage: React.FC = () => {
                             </Link>
                           </h3>
                           <p className="ml-4">
-                            ${(item.price * item.quantity).toFixed(2)}
+                            {(item.price * item.quantity).toFixed(2)} so'm
                           </p>
                         </div>
                         <p className="mt-1 text-sm text-text-secondary">
-                          Seller: {item.seller}
+                          Sotuvchi: {item.seller}
                         </p>
                         <p className="mt-1 text-sm text-text-secondary">
-                          ${item.price.toFixed(2)} per {item.unit}
+                          {item.price.toFixed(2)} so'm {item.unit} uchun
                         </p>
                       </div>
 
@@ -181,7 +181,7 @@ const CartPage: React.FC = () => {
                             className="font-medium text-primary hover:text-primary/80"
                             onClick={() => removeItem(item.id)}
                           >
-                            Remove
+                            Olib tashlash
                           </button>
                         </div>
                       </div>
@@ -207,7 +207,7 @@ const CartPage: React.FC = () => {
                       clipRule="evenodd"
                     />
                   </svg>
-                  Continue Shopping
+                  Xarid qilishni davom ettirish
                 </Link>
               </div>
             </div>
@@ -216,37 +216,37 @@ const CartPage: React.FC = () => {
             <div className="mt-16 lg:mt-0 lg:col-span-5">
               <div className="bg-white rounded-lg shadow-sm px-6 py-6">
                 <h2 className="text-lg font-medium text-text-primary">
-                  Order Summary
+                  Buyurtma ma'lumotlari
                 </h2>
 
                 <div className="mt-6 space-y-4">
                   <div className="flex items-center justify-between">
-                    <p className="text-text-secondary">Subtotal</p>
+                    <p className="text-text-secondary">Oraliq jami</p>
                     <p className="text-text-primary font-medium">
-                      ${subtotal.toFixed(2)}
+                      {subtotal.toFixed(2)} so'm
                     </p>
                   </div>
 
                   <div className="flex items-center justify-between">
-                    <p className="text-text-secondary">Delivery Fee</p>
+                    <p className="text-text-secondary">Yetkazib berish narxi</p>
                     <p className="text-text-primary font-medium">
-                      ${deliveryFee.toFixed(2)}
+                      {deliveryFee.toFixed(2)} so'm
                     </p>
                   </div>
 
                   {promoApplied && (
                     <div className="flex items-center justify-between text-primary">
-                      <p>Promo Discount</p>
-                      <p>-${promoDiscount.toFixed(2)}</p>
+                      <p>Promo chegirma</p>
+                      <p>-{promoDiscount.toFixed(2)} so'm</p>
                     </div>
                   )}
 
                   <div className="border-t border-gray-200 pt-4 flex items-center justify-between">
                     <p className="text-lg font-medium text-text-primary">
-                      Total
+                      Jami
                     </p>
                     <p className="text-lg font-bold text-primary">
-                      ${total.toFixed(2)}
+                      {total.toFixed(2)} so'm
                     </p>
                   </div>
                 </div>
@@ -257,7 +257,7 @@ const CartPage: React.FC = () => {
                     htmlFor="promo-code"
                     className="block text-sm font-medium text-text-primary"
                   >
-                    Promo Code
+                    Promo kod
                   </label>
                   <div className="mt-1 flex space-x-2">
                     <input
@@ -267,19 +267,19 @@ const CartPage: React.FC = () => {
                       value={promoCode}
                       onChange={(e) => setPromoCode(e.target.value)}
                       className="block w-full border-gray-300 rounded-md shadow-sm focus:ring-primary focus:border-primary sm:text-sm"
-                      placeholder="Enter code"
+                      placeholder="Kodni kiriting"
                     />
                     <button
                       type="button"
                       onClick={applyPromoCode}
                       className="bg-gray-100 border border-gray-300 rounded-md py-2 px-4 text-sm font-medium text-text-primary hover:bg-gray-200"
                     >
-                      Apply
+                      Qo'llash
                     </button>
                   </div>
                   {promoApplied && (
                     <p className="mt-2 text-sm text-primary">
-                      Promo code applied!
+                      Promo kod qo'llanildi!
                     </p>
                   )}
                 </div>
@@ -290,7 +290,7 @@ const CartPage: React.FC = () => {
                     type="button"
                     className="w-full bg-primary border border-transparent rounded-md shadow-sm py-3 px-4 text-base font-medium text-white hover:bg-primary/90 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-primary"
                   >
-                    Proceed to Checkout
+                    To'lovga o'tish
                   </button>
                 </div>
 
@@ -309,7 +309,7 @@ const CartPage: React.FC = () => {
                     />
                   </svg>
                   <p className="ml-2 text-sm text-text-secondary">
-                    Secure checkout
+                    Xavfsiz to'lov
                   </p>
                 </div>
               </div>
@@ -332,14 +332,14 @@ const CartPage: React.FC = () => {
               />
             </svg>
             <h2 className="mt-4 text-2xl font-bold text-text-primary">
-              Your cart is empty
+              Sizning savatingiz bo'sh
             </h2>
             <p className="mt-2 text-text-secondary">
-              Looks like you haven't added any products to your cart yet.
+              Hali savatingizga hech qanday mahsulot qo'shmaganga o'xshaysiz.
             </p>
             <div className="mt-6">
               <Link to="/products" className="btn-primary inline-block">
-                Start Shopping
+                Xarid qilishni boshlash
               </Link>
             </div>
           </div>

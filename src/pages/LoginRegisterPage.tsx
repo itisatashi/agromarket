@@ -24,7 +24,7 @@ const LoginRegisterPage: React.FC = () => {
   // Form submission handlers
   const handleLoginSubmit = (e: React.FormEvent) => {
     e.preventDefault();
-    console.log("Login submitted:", { loginEmail, loginPassword, rememberMe });
+    console.log("Kirish yuborildi:", { loginEmail, loginPassword, rememberMe });
 
     // For demo purposes, simulate successful login
     if (role === "farmer") {
@@ -38,7 +38,7 @@ const LoginRegisterPage: React.FC = () => {
 
   const handleRegisterSubmit = (e: React.FormEvent) => {
     e.preventDefault();
-    console.log("Register submitted:", {
+    console.log("Ro'yxatdan o'tish yuborildi:", {
       firstName,
       lastName,
       registerEmail,
@@ -60,15 +60,15 @@ const LoginRegisterPage: React.FC = () => {
     <div className="min-h-screen bg-background flex flex-col justify-center py-12 sm:px-6 lg:px-8">
       <div className="sm:mx-auto sm:w-full sm:max-w-md">
         <h2 className="mt-6 text-center text-3xl font-extrabold text-text-primary">
-          {isLoginTab ? "Sign in to your account" : "Create your account"}
+          {isLoginTab ? "Hisobingizga kiring" : "Hisobingizni yarating"}
         </h2>
         <p className="mt-2 text-center text-sm text-text-secondary">
-          {isLoginTab ? "Don't have an account? " : "Already have an account? "}
+          {isLoginTab ? "Hisobingiz yo'qmi? " : "Allaqachon hisobingiz bormi? "}
           <button
             onClick={() => setIsLoginTab(!isLoginTab)}
             className="font-medium text-primary hover:text-primary/80"
           >
-            {isLoginTab ? "Sign up" : "Sign in"}
+            {isLoginTab ? "Ro'yxatdan o'tish" : "Kirish"}
           </button>
         </p>
       </div>
@@ -86,7 +86,7 @@ const LoginRegisterPage: React.FC = () => {
                     : "border-transparent text-text-secondary hover:text-text-primary hover:border-gray-300"
                 }`}
               >
-                Sign In
+                Kirish
               </button>
               <button
                 onClick={() => setIsLoginTab(false)}
@@ -96,7 +96,7 @@ const LoginRegisterPage: React.FC = () => {
                     : "border-transparent text-text-secondary hover:text-text-primary hover:border-gray-300"
                 }`}
               >
-                Register
+                Ro'yxatdan o'tish
               </button>
             </div>
           </div>
@@ -116,7 +116,7 @@ const LoginRegisterPage: React.FC = () => {
                   onChange={() => setRole("customer")}
                   className="h-4 w-4 text-primary focus:ring-primary border-gray-300"
                 />
-                <span className="ml-2">Customer</span>
+                <span className="ml-2">Xaridor</span>
               </label>
               <label
                 className={`flex items-center cursor-pointer ${
@@ -130,7 +130,7 @@ const LoginRegisterPage: React.FC = () => {
                   onChange={() => setRole("farmer")}
                   className="h-4 w-4 text-primary focus:ring-primary border-gray-300"
                 />
-                <span className="ml-2">Farmer</span>
+                <span className="ml-2">Fermer</span>
               </label>
             </div>
           </div>
@@ -143,7 +143,7 @@ const LoginRegisterPage: React.FC = () => {
                   htmlFor="email"
                   className="block text-sm font-medium text-text-primary"
                 >
-                  Email address
+                  Elektron pochta
                 </label>
                 <div className="mt-1">
                   <input
@@ -164,7 +164,7 @@ const LoginRegisterPage: React.FC = () => {
                   htmlFor="password"
                   className="block text-sm font-medium text-text-primary"
                 >
-                  Password
+                  Parol
                 </label>
                 <div className="mt-1">
                   <input
@@ -194,7 +194,7 @@ const LoginRegisterPage: React.FC = () => {
                     htmlFor="remember-me"
                     className="ml-2 block text-sm text-text-secondary"
                   >
-                    Remember me
+                    Meni eslab qoling
                   </label>
                 </div>
 
@@ -203,7 +203,7 @@ const LoginRegisterPage: React.FC = () => {
                     href="#"
                     className="font-medium text-primary hover:text-primary/80"
                   >
-                    Forgot your password?
+                    Parolingizni unutdingizmi?
                   </a>
                 </div>
               </div>
@@ -213,7 +213,7 @@ const LoginRegisterPage: React.FC = () => {
                   type="submit"
                   className="w-full flex justify-center py-2 px-4 border border-transparent rounded-md shadow-sm text-sm font-medium text-white bg-primary hover:bg-primary/90 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-primary"
                 >
-                  Sign in
+                  Kirish
                 </button>
               </div>
 
@@ -224,7 +224,7 @@ const LoginRegisterPage: React.FC = () => {
                   </div>
                   <div className="relative flex justify-center text-sm">
                     <span className="px-2 bg-white text-text-secondary">
-                      Or continue with
+                      Yoki davom eting
                     </span>
                   </div>
                 </div>
@@ -259,7 +259,7 @@ const LoginRegisterPage: React.FC = () => {
                         />
                       </g>
                     </svg>
-                    Sign in with Google
+                    Google orqali kirish
                   </button>
                 </div>
               </div>
@@ -275,7 +275,7 @@ const LoginRegisterPage: React.FC = () => {
                     htmlFor="first-name"
                     className="block text-sm font-medium text-text-primary"
                   >
-                    First name
+                    Ism
                   </label>
                   <div className="mt-1">
                     <input
@@ -296,7 +296,7 @@ const LoginRegisterPage: React.FC = () => {
                     htmlFor="last-name"
                     className="block text-sm font-medium text-text-primary"
                   >
-                    Last name
+                    Familiya
                   </label>
                   <div className="mt-1">
                     <input
@@ -318,7 +318,7 @@ const LoginRegisterPage: React.FC = () => {
                   htmlFor="register-email"
                   className="block text-sm font-medium text-text-primary"
                 >
-                  Email address
+                  Elektron pochta
                 </label>
                 <div className="mt-1">
                   <input
@@ -340,7 +340,7 @@ const LoginRegisterPage: React.FC = () => {
                     htmlFor="register-password"
                     className="block text-sm font-medium text-text-primary"
                   >
-                    Password
+                    Parol
                   </label>
                   <div className="mt-1">
                     <input
@@ -361,7 +361,7 @@ const LoginRegisterPage: React.FC = () => {
                     htmlFor="confirm-password"
                     className="block text-sm font-medium text-text-primary"
                   >
-                    Confirm password
+                    Parolni tasdiqlang
                   </label>
                   <div className="mt-1">
                     <input
@@ -386,7 +386,7 @@ const LoginRegisterPage: React.FC = () => {
                       htmlFor="farm-name"
                       className="block text-sm font-medium text-text-primary"
                     >
-                      Farm name
+                      Ferma nomi
                     </label>
                     <div className="mt-1">
                       <input
@@ -406,7 +406,7 @@ const LoginRegisterPage: React.FC = () => {
                       htmlFor="farm-location"
                       className="block text-sm font-medium text-text-primary"
                     >
-                      Farm location
+                      Ferma joylashuvi
                     </label>
                     <div className="mt-1">
                       <input
@@ -437,14 +437,15 @@ const LoginRegisterPage: React.FC = () => {
                   htmlFor="terms"
                   className="ml-2 block text-sm text-text-secondary"
                 >
-                  I agree to the{" "}
+                  Men{" "}
                   <a href="#" className="text-primary hover:text-primary/80">
-                    Terms and Conditions
+                    Foydalanish shartlari
                   </a>{" "}
-                  and{" "}
+                  va{" "}
                   <a href="#" className="text-primary hover:text-primary/80">
-                    Privacy Policy
+                    Maxfiylik siyosati
                   </a>
+                  ga roziman
                 </label>
               </div>
 
@@ -453,7 +454,7 @@ const LoginRegisterPage: React.FC = () => {
                   type="submit"
                   className="w-full flex justify-center py-2 px-4 border border-transparent rounded-md shadow-sm text-sm font-medium text-white bg-primary hover:bg-primary/90 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-primary"
                 >
-                  Register
+                  Ro'yxatdan o'tish
                 </button>
               </div>
             </form>

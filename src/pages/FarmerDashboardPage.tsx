@@ -1,91 +1,91 @@
 import React, { useState } from 'react';
 
-// Mock data for farmer's products
+// Fermer mahsulotlari uchun namuna ma'lumotlar
 const mockProducts = [
   {
     id: 1,
-    name: 'Fresh Organic Tomatoes',
+    name: 'Yangi organik pomidorlar',
     price: 2.99,
-    unit: 'lb',
+    unit: 'kg',
     image: 'https://images.unsplash.com/photo-1592924357228-91a4daadcfea?ixlib=rb-1.2.1&auto=format&fit=crop&w=500&q=60',
     quantity: 50,
-    status: 'Active',
+    status: 'Faol',
     dateAdded: '2025-04-15'
   },
   {
     id: 2,
-    name: 'Farm Fresh Eggs',
+    name: 'Ferma toza tuxumlari',
     price: 4.50,
-    unit: 'dozen',
+    unit: 'dona',
     image: 'https://images.unsplash.com/photo-1598965675045-45c5e72c7d05?ixlib=rb-1.2.1&auto=format&fit=crop&w=500&q=60',
     quantity: 30,
-    status: 'Active',
+    status: 'Faol',
     dateAdded: '2025-04-20'
   },
   {
     id: 3,
-    name: 'Organic Honey',
+    name: 'Organik asal',
     price: 8.99,
-    unit: 'jar',
+    unit: 'banka',
     image: 'https://images.unsplash.com/photo-1587049352851-8d4e89133924?ixlib=rb-1.2.1&auto=format&fit=crop&w=500&q=60',
     quantity: 15,
-    status: 'Pending',
+    status: 'Kutilmoqda',
     dateAdded: '2025-05-01'
   },
   {
     id: 4,
-    name: 'Heirloom Carrots',
+    name: 'Mahalliy navli sabzilar',
     price: 3.49,
-    unit: 'bunch',
+    unit: 'boglam',
     image: 'https://images.unsplash.com/photo-1447175008436-054170c2e979?ixlib=rb-1.2.1&auto=format&fit=crop&w=500&q=60',
     quantity: 0,
-    status: 'Sold Out',
+    status: 'Tugagan',
     dateAdded: '2025-04-10'
   }
 ];
 
-// Mock data for recent orders
+// So'nggi buyurtmalar uchun namuna ma'lumotlar
 const mockOrders = [
   {
     id: 'ORD-001',
-    customer: 'John Smith',
+    customer: 'Ismoilov Jasur',
     date: '2025-05-01',
-    items: ['Fresh Organic Tomatoes (2lb)', 'Farm Fresh Eggs (1 dozen)'],
+    items: ['Yangi organik pomidorlar (2kg)', 'Ferma toza tuxumlari (10 dona)'],
     total: 10.48,
-    status: 'Delivered'
+    status: 'Yetkazilgan'
   },
   {
     id: 'ORD-002',
-    customer: 'Sarah Johnson',
+    customer: 'Karimova Saida',
     date: '2025-05-02',
-    items: ['Organic Honey (1 jar)'],
+    items: ['Organik asal (1 banka)'],
     total: 8.99,
-    status: 'Processing'
+    status: 'Jarayonda'
   },
   {
     id: 'ORD-003',
-    customer: 'Michael Chen',
+    customer: 'Alimov Bobur',
     date: '2025-05-03',
-    items: ['Fresh Organic Tomatoes (3lb)', 'Organic Honey (1 jar)'],
+    items: ['Yangi organik pomidorlar (3kg)', 'Organik asal (1 banka)'],
     total: 17.96,
-    status: 'Pending'
+    status: 'Kutilmoqda'
   }
 ];
 
 const FarmerDashboardPage: React.FC = () => {
   const [activeTab, setActiveTab] = useState<'overview' | 'products' | 'orders'>('overview');
-  const [statusFilter, setStatusFilter] = useState<string>('All');
+  const [statusFilter, setStatusFilter] = useState<string>('Barchasi');
   const [showAddProductModal, setShowAddProductModal] = useState(false);
 
   
   // Filter products based on status
-  const filteredProducts = statusFilter === 'All' 
+  const filteredProducts = statusFilter === 'Barchasi' 
     ? mockProducts 
     : mockProducts.filter(product => product.status === statusFilter);
 
   // Calculate dashboard stats
   const totalProducts = mockProducts.length;
-  const activeProducts = mockProducts.filter(product => product.status === 'Active').length;
+  const activeProducts = mockProducts.filter(product => product.status === 'Faol').length;
   const totalOrders = mockOrders.length;
   const totalEarnings = mockOrders.reduce((sum, order) => sum + order.total, 0);
 
@@ -93,7 +93,7 @@ const FarmerDashboardPage: React.FC = () => {
     <div className="bg-background min-h-screen">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-8">
         <div className="flex flex-col md:flex-row md:items-center md:justify-between">
-          <h1 className="text-3xl font-extrabold text-text-primary">Farmer Dashboard</h1>
+          <h1 className="text-3xl font-extrabold text-text-primary">Fermer boshqaruv paneli</h1>
           <div className="mt-4 md:mt-0">
             <button
               onClick={() => setShowAddProductModal(true)}
@@ -102,7 +102,7 @@ const FarmerDashboardPage: React.FC = () => {
               <svg xmlns="http://www.w3.org/2000/svg" className="h-5 w-5 mr-2" viewBox="0 0 20 20" fill="currentColor">
                 <path fillRule="evenodd" d="M10 3a1 1 0 011 1v5h5a1 1 0 110 2h-5v5a1 1 0 11-2 0v-5H4a1 1 0 110-2h5V4a1 1 0 011-1z" clipRule="evenodd" />
               </svg>
-              Add New Product
+              Yangi mahsulot qo'shish
             </button>
           </div>
         </div>
@@ -118,7 +118,7 @@ const FarmerDashboardPage: React.FC = () => {
                   : 'border-transparent text-text-secondary hover:text-text-primary hover:border-gray-300'
               } whitespace-nowrap py-4 px-1 border-b-2 font-medium text-sm`}
             >
-              Overview
+              Umumiy ko'rinish
             </button>
             <button
               onClick={() => setActiveTab('products')}
@@ -128,7 +128,7 @@ const FarmerDashboardPage: React.FC = () => {
                   : 'border-transparent text-text-secondary hover:text-text-primary hover:border-gray-300'
               } whitespace-nowrap py-4 px-1 border-b-2 font-medium text-sm`}
             >
-              Products
+              Mahsulotlar
             </button>
             <button
               onClick={() => setActiveTab('orders')}
@@ -138,7 +138,7 @@ const FarmerDashboardPage: React.FC = () => {
                   : 'border-transparent text-text-secondary hover:text-text-primary hover:border-gray-300'
               } whitespace-nowrap py-4 px-1 border-b-2 font-medium text-sm`}
             >
-              Orders
+              Buyurtmalar
             </button>
           </nav>
         </div>
@@ -158,7 +158,7 @@ const FarmerDashboardPage: React.FC = () => {
                     </div>
                     <div className="ml-5 w-0 flex-1">
                       <dl>
-                        <dt className="text-sm font-medium text-text-secondary truncate">Total Products</dt>
+                        <dt className="text-sm font-medium text-text-secondary truncate">Jami mahsulotlar</dt>
                         <dd>
                           <div className="text-lg font-medium text-text-primary">{totalProducts}</div>
                         </dd>
@@ -179,7 +179,7 @@ const FarmerDashboardPage: React.FC = () => {
                     </div>
                     <div className="ml-5 w-0 flex-1">
                       <dl>
-                        <dt className="text-sm font-medium text-text-secondary truncate">Active Products</dt>
+                        <dt className="text-sm font-medium text-text-secondary truncate">Faol mahsulotlar</dt>
                         <dd>
                           <div className="text-lg font-medium text-text-primary">{activeProducts}</div>
                         </dd>
@@ -200,7 +200,7 @@ const FarmerDashboardPage: React.FC = () => {
                     </div>
                     <div className="ml-5 w-0 flex-1">
                       <dl>
-                        <dt className="text-sm font-medium text-text-secondary truncate">Total Orders</dt>
+                        <dt className="text-sm font-medium text-text-secondary truncate">Jami buyurtmalar</dt>
                         <dd>
                           <div className="text-lg font-medium text-text-primary">{totalOrders}</div>
                         </dd>
@@ -221,9 +221,9 @@ const FarmerDashboardPage: React.FC = () => {
                     </div>
                     <div className="ml-5 w-0 flex-1">
                       <dl>
-                        <dt className="text-sm font-medium text-text-secondary truncate">Earnings</dt>
+                        <dt className="text-sm font-medium text-text-secondary truncate">Daromad</dt>
                         <dd>
-                          <div className="text-lg font-medium text-text-primary">${totalEarnings.toFixed(2)}</div>
+                          <div className="text-lg font-medium text-text-primary">{totalEarnings.toFixed(2)} so'm</div>
                         </dd>
                       </dl>
                     </div>
@@ -234,7 +234,7 @@ const FarmerDashboardPage: React.FC = () => {
 
             {/* Recent Activity */}
             <div className="mt-8">
-              <h2 className="text-lg font-medium text-text-primary mb-4">Recent Orders</h2>
+              <h2 className="text-lg font-medium text-text-primary mb-4">So'nggi buyurtmalar</h2>
               <div className="bg-white shadow overflow-hidden sm:rounded-md">
                 <ul className="divide-y divide-gray-200">
                   {mockOrders.map((order) => (
@@ -248,7 +248,7 @@ const FarmerDashboardPage: React.FC = () => {
                             </p>
                           </div>
                           <div className="ml-2 flex-shrink-0 flex">
-                            <p className="text-sm text-text-primary">${order.total.toFixed(2)}</p>
+                            <p className="text-sm text-text-primary">{order.total.toFixed(2)} so'm</p>
                           </div>
                         </div>
                         <div className="mt-2 sm:flex sm:justify-between">
@@ -265,7 +265,7 @@ const FarmerDashboardPage: React.FC = () => {
                               <path fillRule="evenodd" d="M6 2a1 1 0 00-1 1v1H4a2 2 0 00-2 2v10a2 2 0 002 2h12a2 2 0 002-2V6a2 2 0 00-2-2h-1V3a1 1 0 10-2 0v1H7V3a1 1 0 00-1-1zm0 5a1 1 0 000 2h8a1 1 0 100-2H6z" clipRule="evenodd" />
                             </svg>
                             <p>
-                              Ordered on <time dateTime={order.date}>{order.date}</time>
+                              Buyurtma sanasi: <time dateTime={order.date}>{order.date}</time>
                             </p>
                           </div>
                         </div>
@@ -286,16 +286,16 @@ const FarmerDashboardPage: React.FC = () => {
           <div className="mt-8">
             <div className="flex flex-col sm:flex-row sm:items-center sm:justify-between">
               <div className="flex items-center">
-                <span className="mr-2 text-text-secondary">Filter by status:</span>
+                <span className="mr-2 text-text-secondary">Holati bo'yicha saralash:</span>
                 <select
                   value={statusFilter}
                   onChange={(e) => setStatusFilter(e.target.value)}
                   className="border-gray-300 rounded-md shadow-sm focus:ring-primary focus:border-primary sm:text-sm"
                 >
-                  <option value="All">All</option>
-                  <option value="Active">Active</option>
-                  <option value="Pending">Pending</option>
-                  <option value="Sold Out">Sold Out</option>
+                  <option value="All">Barchasi</option>
+                  <option value="Faol">Faol</option>
+                  <option value="Kutilmoqda">Kutilmoqda</option>
+                  <option value="Tugagan">Tugagan</option>
                 </select>
               </div>
               <div className="mt-4 sm:mt-0">
@@ -306,7 +306,7 @@ const FarmerDashboardPage: React.FC = () => {
                   <svg xmlns="http://www.w3.org/2000/svg" className="h-5 w-5 mr-2" viewBox="0 0 20 20" fill="currentColor">
                     <path fillRule="evenodd" d="M10 3a1 1 0 011 1v5h5a1 1 0 110 2h-5v5a1 1 0 11-2 0v-5H4a1 1 0 110-2h5V4a1 1 0 011-1z" clipRule="evenodd" />
                   </svg>
-                  Add New Product
+                  Yangi mahsulot qo'shish
                 </button>
               </div>
             </div>
@@ -345,22 +345,22 @@ const FarmerDashboardPage: React.FC = () => {
                               <svg className="flex-shrink-0 mr-1.5 h-5 w-5 text-text-secondary" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20" fill="currentColor">
                                 <path fillRule="evenodd" d="M6 2a1 1 0 00-1 1v1H4a2 2 0 00-2 2v10a2 2 0 002 2h12a2 2 0 002-2V6a2 2 0 00-2-2h-1V3a1 1 0 10-2 0v1H7V3a1 1 0 00-1-1zm0 5a1 1 0 000 2h8a1 1 0 100-2H6z" clipRule="evenodd" />
                               </svg>
-                              <p>Added on {product.dateAdded}</p>
+                              <p>Qo'shilgan sana: {product.dateAdded}</p>
                             </div>
                             <div className="flex items-center text-sm text-text-secondary">
                               <svg className="flex-shrink-0 mr-1.5 h-5 w-5 text-text-secondary" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20" fill="currentColor">
                                 <path fillRule="evenodd" d="M10 2a4 4 0 00-4 4v1H5a1 1 0 00-.994.89l-1 9A1 1 0 004 18h12a1 1 0 00.994-1.11l-1-9A1 1 0 0015 7h-1V6a4 4 0 00-4-4zm2 5V6a2 2 0 10-4 0v1h4zm-6 3a1 1 0 112 0 1 1 0 01-2 0zm7-1a1 1 0 100 2 1 1 0 000-2z" clipRule="evenodd" />
                               </svg>
-                              <p>Available: {product.quantity} {product.unit}s</p>
+                              <p>Mavjud: {product.quantity} {product.unit}</p>
                             </div>
                           </div>
                         </div>
                         <div className="ml-4 flex-shrink-0 flex">
                           <button className="mr-2 text-sm font-medium text-primary hover:text-primary/80">
-                            Edit
+                            Tahrirlash
                           </button>
                           <button className="text-sm font-medium text-red-600 hover:text-red-500">
-                            Delete
+                            O'chirish
                           </button>
                         </div>
                       </div>
@@ -392,7 +392,7 @@ const FarmerDashboardPage: React.FC = () => {
                           </p>
                         </div>
                         <div className="ml-2 flex-shrink-0 flex">
-                          <p className="text-sm font-medium text-text-primary">${order.total.toFixed(2)}</p>
+                          <p className="text-sm font-medium text-text-primary">{order.total.toFixed(2)} so'm</p>
                         </div>
                       </div>
                       <div className="mt-2 sm:flex sm:justify-between">
@@ -418,7 +418,7 @@ const FarmerDashboardPage: React.FC = () => {
                       </div>
                       <div className="mt-2 flex justify-end">
                         <button className="text-sm font-medium text-primary hover:text-primary/80">
-                          View Details
+                          Batafsil ko'rish
                         </button>
                       </div>
                     </div>

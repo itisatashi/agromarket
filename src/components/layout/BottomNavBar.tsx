@@ -28,21 +28,21 @@ interface NavItem {
 
 // Define navigation items for different user roles
 const customerNavItems: NavItem[] = [
-  { name: "Home", path: "/app", icon: HomeIcon, activeIcon: HomeIconSolid },
+  { name: "Uy", path: "/app", icon: HomeIcon, activeIcon: HomeIconSolid },
   {
-    name: "Cart",
+    name: "Savat",
     path: "/app/cart",
     icon: ShoppingCartIcon,
     activeIcon: ShoppingCartIconSolid,
   },
   {
-    name: "Orders",
+    name: "Buyurtmalarim",
     path: "/app/orders",
     icon: ClipboardDocumentListIcon,
     activeIcon: ClipboardDocumentListIconSolid,
   },
   {
-    name: "Profile",
+    name: "Profilim",
     path: "/app/profile",
     icon: UserIcon,
     activeIcon: UserIconSolid,
@@ -58,26 +58,26 @@ const farmerNavItems: NavItem[] = [
     badge: 3,
   },
   {
-    name: "Products",
+    name: "Mahsulotlarim",
     path: "/app/farmer-products",
     icon: ArchiveBoxIcon,
     activeIcon: ArchiveBoxIconSolid,
   },
   {
-    name: "Orders",
+    name: "Buyurtmalarim",
     path: "/app/farmer-orders",
     icon: ClipboardDocumentListIcon,
     activeIcon: ClipboardDocumentListIconSolid,
     badge: 2,
   },
   {
-    name: "Analytics",
+    name: "Statistika",
     path: "/app/farmer-analytics",
     icon: ChartBarIcon,
     activeIcon: ChartBarIconSolid,
   },
   {
-    name: "Profile",
+    name: "Profilim",
     path: "/app/farmer-profile",
     icon: UserIcon,
     activeIcon: UserIconSolid,
@@ -110,11 +110,11 @@ const BottomNavBar: React.FC<BottomNavBarProps> = ({
         setHasNotifications(false);
       }
     };
-    
+
     checkNotifications();
     // Set up a periodic check (e.g., every minute)
     const intervalId = setInterval(checkNotifications, 60000);
-    
+
     return () => clearInterval(intervalId);
   }, [userRole]);
 
@@ -124,8 +124,8 @@ const BottomNavBar: React.FC<BottomNavBarProps> = ({
       setIsMobile(window.innerWidth < 768);
     };
     checkIfMobile();
-    window.addEventListener('resize', checkIfMobile);
-    return () => window.removeEventListener('resize', checkIfMobile);
+    window.addEventListener("resize", checkIfMobile);
+    return () => window.removeEventListener("resize", checkIfMobile);
   }, []);
 
   // Don't show bottom nav on admin pages
@@ -142,7 +142,6 @@ const BottomNavBar: React.FC<BottomNavBarProps> = ({
   // Select navigation items based on user role
   const navItems = userRole === "farmer" ? farmerNavItems : customerNavItems;
 
-  
   return (
     <div className="fixed bottom-0 left-0 right-0 bg-white border-t border-gray-200 z-50">
       <div className="flex justify-around items-center h-16">

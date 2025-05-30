@@ -8,22 +8,22 @@ const WelcomePage: React.FC = () => {
   
   const slides = [
     {
-      title: "Welcome to AgroMarket",
-      description: "Connect directly with local farmers and enjoy fresh, sustainably grown produce delivered to your doorstep.",
+      title: "AgroMarketga Xush Kelibsiz",
+      description: "Mahalliy qishloq xo'jaliklariga bevosita ulanib, sizning eshiklarigacha yetkazib beriladigan yangi, ekologik jihatdan o'stirilgan mahsulotlarni qabul qiling.",
       image: "https://images.unsplash.com/photo-1464226184884-fa280b87c399?ixlib=rb-1.2.1&auto=format&fit=crop&w=1500&q=80",
-      buttonText: "Next"
+      buttonText: "Keyingi"
     },
     {
-      title: "Fresh from the Farm",
-      description: "Support local agriculture and get fresher, healthier food while ensuring farmers receive fair prices.",
+      title: "Fermerlar bilan birgalikda",
+      description: "Mahalliy qishloq xo'jaliklarini qo'llab-quvvatlang va sizga yangi, sog'lom oziq-ovqat mahsulotlarini taqdim etamiz.",
       image: "https://images.unsplash.com/photo-1592321675774-3de57f3ee0dc?ixlib=rb-1.2.1&auto=format&fit=crop&w=1500&q=80",
-      buttonText: "Next"
+      buttonText: "Keyingi"
     },
     {
-      title: "Easy Ordering",
-      description: "Browse products, place orders, and track deliveries all from your mobile device.",
+      title: "Oson buyurtma berish",
+      description: "Mahsulotlarni ko'rib chiqish, buyurtma berish va yetkazib berishni mobil qurilmaningizdan bajarishingiz mumkin.",
       image: "https://images.unsplash.com/photo-1607082349566-187342175e2f?ixlib=rb-1.2.1&auto=format&fit=crop&w=1500&q=80",
-      buttonText: "Get Started"
+      buttonText: "Boshlash"
     }
   ];
 
@@ -82,7 +82,7 @@ const WelcomePage: React.FC = () => {
           to="/login" 
           className="text-white text-sm font-medium"
         >
-          Skip
+          O'tkazib yuborish
         </Link>
       </div>
       
@@ -92,7 +92,7 @@ const WelcomePage: React.FC = () => {
           onClick={() => navigate('/login')}
           className="text-primary font-medium"
         >
-          Skip
+          O'tkazib yuborish
         </button>
         
         <button 

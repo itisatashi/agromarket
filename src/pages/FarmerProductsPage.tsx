@@ -1,6 +1,6 @@
 import React, { useState } from 'react';
 
-// Mock product data
+// Namuna mahsulot ma'lumotlari
 interface Product {
   id: string;
   name: string;
@@ -11,69 +11,69 @@ interface Product {
   category: string;
   organic: boolean;
   images: string[];
-  status: 'active' | 'pending' | 'draft';
+  status: 'faol' | 'qabul qilinmagan' | 'qoralama';
   createdAt: string;
 }
 
 const mockProducts: Product[] = [
   {
     id: '1',
-    name: 'Organic Apples',
-    description: 'Fresh organic apples picked from our orchard.',
+    name: 'Organik olmalar',
+    description: 'Bogimizdan terilgan yangi organik olmalar.',
     price: 2.99,
     stock: 100,
     unit: 'kg',
-    category: 'Fruits',
+    category: 'Mevalar',
     organic: true,
     images: [
       'https://images.unsplash.com/photo-1570913149827-d2ac84ab3f9a?ixlib=rb-1.2.1&auto=format&fit=crop&w=500&q=60',
     ],
-    status: 'active',
+    status: 'faol',
     createdAt: '2023-05-15T10:30:00Z',
   },
   {
     id: '3',
-    name: 'Organic Carrots',
-    description: 'Freshly harvested organic carrots.',
+    name: 'Organik sabzilar',
+    description: 'Yangi yigilgan organik sabzilar.',
     price: 1.99,
     stock: 75,
-    unit: 'bunch',
-    category: 'Vegetables',
+    unit: 'boglam',
+    category: 'Sabzavotlar',
     organic: true,
     images: [
       'https://images.unsplash.com/photo-1598170845058-32b9d6a5da37?ixlib=rb-1.2.1&auto=format&fit=crop&w=500&q=60',
     ],
-    status: 'pending',
+    status: 'qabul qilinmagan',
     createdAt: '2023-05-16T14:45:00Z',
   },
   {
     id: '5',
-    name: 'Organic Kale',
-    description: 'Nutrient-dense kale grown without pesticides.',
+    name: 'Organik karam',
+    description: 'Pestitsidlarsiz yetishtiriladigan foydali moddalar bilan boy karam.',
     price: 2.49,
     stock: 50,
-    unit: 'bunch',
-    category: 'Vegetables',
+    unit: 'boglam',
+    category: 'Sabzavotlar',
     organic: true,
     images: [
       'https://images.unsplash.com/photo-1524179091875-bf99a9a6af57?ixlib=rb-1.2.1&auto=format&fit=crop&w=500&q=60',
     ],
-    status: 'active',
+    status: 'faol',
     createdAt: '2023-05-14T09:15:00Z',
   },
   {
     id: '7',
-    name: 'Fresh Tomatoes',
-    description: 'Juicy tomatoes picked at peak ripeness.',
+    name: 'Yangi pomidorlar',
+    description: 'Eng yaxshi pishgan, sersuv pomidorlar.',
     price: 3.49,
     stock: 60,
     unit: 'kg',
-    category: 'Vegetables',
+    category: 'Sabzavotlar',
     organic: false,
     images: [
       'https://images.unsplash.com/photo-1592924357228-91a4daadcfea?ixlib=rb-1.2.1&auto=format&fit=crop&w=500&q=60',
     ],
-    status: 'draft',
+    status: 'qoralama',
     createdAt: '2023-05-13T11:30:00Z',
   },
 ];
@@ -110,7 +110,7 @@ const FarmerProductsPage: React.FC = () => {
   const categories = Array.from(new Set(products.map(product => product.category)));
 
   // Handle product status change
-  const handleStatusChange = (productId: string, newStatus: 'active' | 'pending' | 'draft') => {
+  const handleStatusChange = (productId: string, newStatus: 'faol' | 'qabul qilinmagan' | 'qoralama') => {
     setProducts(products.map(product => 
       product.id === productId ? { ...product, status: newStatus } : product
     ));
@@ -118,7 +118,7 @@ const FarmerProductsPage: React.FC = () => {
 
   // Handle product deletion
   const handleDeleteProduct = (productId: string) => {
-    if (window.confirm('Are you sure you want to delete this product?')) {
+    if (window.confirm('Siz ushbu mahsulotni o‘chirib tashlamoqchi ekanligingizga ishonchingiz komilmi?')) {
       setProducts(products.filter(product => product.id !== productId));
     }
   };
@@ -126,11 +126,11 @@ const FarmerProductsPage: React.FC = () => {
   // Get status badge color
   const getStatusColor = (status: Product['status']) => {
     switch (status) {
-      case 'active':
+      case 'faol':
         return 'bg-green-100 text-green-800';
-      case 'pending':
+      case 'qabul qilinmagan':
         return 'bg-yellow-100 text-yellow-800';
-      case 'draft':
+      case 'qoralama':
         return 'bg-gray-100 text-gray-800';
       default:
         return 'bg-gray-100 text-gray-800';
@@ -140,12 +140,12 @@ const FarmerProductsPage: React.FC = () => {
   return (
     <div className="container mx-auto px-4 py-6">
       <div className="flex flex-col md:flex-row justify-between items-start md:items-center mb-6">
-        <h1 className="text-2xl font-bold text-gray-800 mb-4 md:mb-0">My Products</h1>
+        <h1 className="text-2xl font-bold text-gray-800 mb-4 md:mb-0">Mahsulotlarim</h1>
         <button
           onClick={() => setIsAddModalOpen(true)}
           className="btn-primary"
         >
-          Add New Product
+          Yangi mahsulot qo'shish
         </button>
       </div>
 
@@ -153,25 +153,25 @@ const FarmerProductsPage: React.FC = () => {
       <div className="bg-white rounded-lg shadow-md p-4 mb-6">
         <div className="grid grid-cols-1 md:grid-cols-4 gap-4">
           <div>
-            <label htmlFor="search" className="block text-sm font-medium text-gray-700 mb-1">Search</label>
+            <label htmlFor="search" className="block text-sm font-medium text-gray-700 mb-1">Qidirish</label>
             <input
               type="text"
               id="search"
               className="w-full border border-gray-300 rounded-md px-3 py-2"
-              placeholder="Search products..."
+              placeholder="Mahsulotlarni qidirish..."
               value={searchTerm}
               onChange={(e) => setSearchTerm(e.target.value)}
             />
           </div>
           <div>
-            <label htmlFor="category" className="block text-sm font-medium text-gray-700 mb-1">Category</label>
+            <label htmlFor="category" className="block text-sm font-medium text-gray-700 mb-1">Kategoriya</label>
             <select
               id="category"
               className="w-full border border-gray-300 rounded-md px-3 py-2"
               value={filterCategory}
               onChange={(e) => setFilterCategory(e.target.value)}
             >
-              <option value="">All Categories</option>
+              <option value="">Barcha kategoriyalar</option>
               {categories.map(category => (
                 <option key={category} value={category}>{category}</option>
               ))}
@@ -185,10 +185,10 @@ const FarmerProductsPage: React.FC = () => {
               value={filterStatus}
               onChange={(e) => setFilterStatus(e.target.value)}
             >
-              <option value="">All Statuses</option>
-              <option value="active">Active</option>
-              <option value="pending">Pending</option>
-              <option value="draft">Draft</option>
+              <option value="">Barchasi</option>
+              <option value="faol">Faol</option>
+              <option value="qabul qilinmagan">Qabul qilinmagan</option>
+              <option value="qoralama">Qoralama</option>
             </select>
           </div>
           <div>
@@ -200,12 +200,12 @@ const FarmerProductsPage: React.FC = () => {
               onChange={(e) => setSortBy(e.target.value)}
             >
               <option value="">Default</option>
-              <option value="name-asc">Name (A-Z)</option>
-              <option value="name-desc">Name (Z-A)</option>
-              <option value="price-asc">Price (Low to High)</option>
-              <option value="price-desc">Price (High to Low)</option>
-              <option value="date-asc">Date Added (Oldest)</option>
-              <option value="date-desc">Date Added (Newest)</option>
+              <option value="name-asc">Nomi (A-Z)</option>
+              <option value="name-desc">Nomi (Z-A)</option>
+              <option value="price-asc">Narxi (Eng pastdan)</option>
+              <option value="price-desc">Narxi (Eng pastdan)</option>
+              <option value="date-asc">Qo'shilgan sana (Eng pastdan)</option>
+              <option value="date-desc">Qo'shilgan sana (Eng pastdan)</option>
             </select>
           </div>
         </div>
@@ -230,7 +230,7 @@ const FarmerProductsPage: React.FC = () => {
                     {product.status.charAt(0).toUpperCase() + product.status.slice(1)}
                   </span>
                 </div>
-                <p className="text-primary font-medium">${product.price.toFixed(2)} / {product.unit}</p>
+                <p className="text-primary font-medium">{product.price.toFixed(2)} so'm / {product.unit}</p>
                 <p className="text-sm text-gray-500 mt-1">Stock: {product.stock} {product.unit}</p>
                 <p className="text-sm text-gray-500 mt-1 line-clamp-2">{product.description}</p>
                 
@@ -238,12 +238,12 @@ const FarmerProductsPage: React.FC = () => {
                   <div>
                     <select
                       value={product.status}
-                      onChange={(e) => handleStatusChange(product.id, e.target.value as 'active' | 'pending' | 'draft')}
+                      onChange={(e) => handleStatusChange(product.id, e.target.value as 'faol' | 'qabul qilinmagan' | 'qoralama')}
                       className="text-sm border border-gray-300 rounded px-2 py-1"
                     >
-                      <option value="active">Active</option>
-                      <option value="pending">Pending</option>
-                      <option value="draft">Draft</option>
+                      <option value="faol">Faol</option>
+                      <option value="qabul qilinmagan">Qabul qilinmagan</option>
+                      <option value="qoralama">Qoralama</option>
                     </select>
                   </div>
                   <div className="flex space-x-2">
@@ -251,13 +251,13 @@ const FarmerProductsPage: React.FC = () => {
                       onClick={() => setSelectedProduct(product)}
                       className="text-primary hover:text-primary-dark text-sm font-medium"
                     >
-                      Edit
+                      Tahrirlash
                     </button>
                     <button
                       onClick={() => handleDeleteProduct(product.id)}
                       className="text-red-600 hover:text-red-800 text-sm font-medium"
                     >
-                      Delete
+                      O'chirish
                     </button>
                   </div>
                 </div>
@@ -281,7 +281,7 @@ const FarmerProductsPage: React.FC = () => {
               d="M20 13V6a2 2 0 00-2-2H6a2 2 0 00-2 2v7m16 0v5a2 2 0 01-2 2H6a2 2 0 01-2-2v-5m16 0h-2.586a1 1 0 00-.707.293l-2.414 2.414a1 1 0 01-.707.293h-3.172a1 1 0 01-.707-.293l-2.414-2.414A1 1 0 006.586 13H4"
             />
           </svg>
-          <h3 className="mt-2 text-sm font-medium text-gray-900">No products found</h3>
+          <h3 className="mt-2 text-sm font-medium text-gray-900">Mahsulotlar topilmadi</h3>
           <p className="mt-1 text-sm text-gray-500">
             {searchTerm || filterCategory || filterStatus
               ? "No products match your current filters."
@@ -292,7 +292,7 @@ const FarmerProductsPage: React.FC = () => {
               onClick={() => setIsAddModalOpen(true)}
               className="inline-flex items-center px-4 py-2 border border-transparent rounded-md shadow-sm text-sm font-medium text-white bg-primary hover:bg-primary-dark focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-primary"
             >
-              Add New Product
+              Yangi mahsulot qo'shish
             </button>
           </div>
         </div>
