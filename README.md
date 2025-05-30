@@ -4,7 +4,7 @@
   <img src="src/assets/logo.png" alt="AgroMarket logo" width="200"/>
 </p>
 
-AgroMarket - bu O'zbekiston fermerlarini to'g'ridan-to'g'ri iste'molchilar bilan bog'laydigan innovatsion onlayn platforma. Ushbu loyiha mahalliy qishloq xo'jaligi mahsulotlarini sotib olish va sotish jarayonini soddalashtirish, oziq-ovqat tizimini barqarorlashtirish va qishloq jamiyatlarini qo'llab-quvvatlashga qaratilgan.
+AgroMarket - bu Qoraqalpogʻistondagi fermerlarini to'g'ridan-to'g'ri iste'molchilar bilan bog'laydigan innovatsion onlayn platforma. Ushbu loyiha mahalliy qishloq xo'jaligi mahsulotlarini sotib olish va sotish jarayonini soddalashtirish, oziq-ovqat tizimini barqarorlashtirish va qishloq jamiyatlarini qo'llab-quvvatlashga qaratilgan.
 
 ## Asosiy xususiyatlar
 
