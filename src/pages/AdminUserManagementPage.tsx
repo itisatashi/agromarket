@@ -1,7 +1,7 @@
 import React, { useState } from 'react';
 import { Link } from 'react-router-dom';
 
-// Mock user data
+// Namunali foydalanuvchi ma'lumotlari
 const mockUsers = [
   {
     id: 1,
@@ -139,10 +139,10 @@ const AdminUserManagementPage: React.FC = () => {
     <div className="bg-background min-h-screen">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-8">
         <div className="flex flex-col md:flex-row md:items-center md:justify-between">
-          <h1 className="text-3xl font-extrabold text-text-primary">User Management</h1>
+          <h1 className="text-3xl font-extrabold text-text-primary">Foydalanuvchilarni boshqarish</h1>
           <div className="mt-4 md:mt-0">
             <Link to="/app/admin-dashboard" className="btn-secondary">
-              Back to Dashboard
+              Boshqaruv paneliga qaytish
             </Link>
           </div>
         </div>
@@ -151,7 +151,7 @@ const AdminUserManagementPage: React.FC = () => {
         <div className="mt-8 bg-white shadow-sm rounded-lg p-6">
           <div className="flex flex-col md:flex-row md:items-center md:justify-between space-y-4 md:space-y-0">
             <div className="w-full md:w-1/3">
-              <label htmlFor="search" className="sr-only">Search</label>
+              <label htmlFor="search" className="sr-only">Qidirish</label>
               <div className="relative">
                 <div className="absolute inset-y-0 left-0 pl-3 flex items-center pointer-events-none">
                   <svg className="h-5 w-5 text-text-secondary" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20" fill="currentColor" aria-hidden="true">
@@ -162,7 +162,7 @@ const AdminUserManagementPage: React.FC = () => {
                   id="search"
                   name="search"
                   className="block w-full pl-10 pr-3 py-2 border border-gray-300 rounded-md leading-5 bg-white placeholder-gray-500 focus:outline-none focus:placeholder-gray-400 focus:ring-primary focus:border-primary sm:text-sm"
-                  placeholder="Search by name or email"
+                  placeholder="Ism yoki elektron pochta orqali qidirish"
                   type="search"
                   value={searchTerm}
                   onChange={(e) => setSearchTerm(e.target.value)}
@@ -171,7 +171,7 @@ const AdminUserManagementPage: React.FC = () => {
             </div>
             <div className="flex space-x-4">
               <div>
-                <label htmlFor="role-filter" className="block text-sm font-medium text-text-secondary">Role</label>
+                <label htmlFor="role-filter" className="block text-sm font-medium text-text-secondary">Rol</label>
                 <select
                   id="role-filter"
                   name="role-filter"
@@ -179,13 +179,13 @@ const AdminUserManagementPage: React.FC = () => {
                   value={roleFilter}
                   onChange={(e) => setRoleFilter(e.target.value)}
                 >
-                  <option value="All">All Roles</option>
-                  <option value="Farmer">Farmer</option>
-                  <option value="Customer">Customer</option>
+                  <option value="All">Barcha rollar</option>
+                  <option value="Farmer">Fermer</option>
+                  <option value="Customer">Xaridor</option>
                 </select>
               </div>
               <div>
-                <label htmlFor="status-filter" className="block text-sm font-medium text-text-secondary">Status</label>
+                <label htmlFor="status-filter" className="block text-sm font-medium text-text-secondary">Holati</label>
                 <select
                   id="status-filter"
                   name="status-filter"
@@ -193,9 +193,9 @@ const AdminUserManagementPage: React.FC = () => {
                   value={statusFilter}
                   onChange={(e) => setStatusFilter(e.target.value)}
                 >
-                  <option value="All">All Status</option>
-                  <option value="Active">Active</option>
-                  <option value="Inactive">Inactive</option>
+                  <option value="All">Barcha holatlar</option>
+                  <option value="Active">Faol</option>
+                  <option value="Inactive">Faol emas</option>
                 </select>
               </div>
             </div>
@@ -211,19 +211,19 @@ const AdminUserManagementPage: React.FC = () => {
                   <thead className="bg-gray-50">
                     <tr>
                       <th scope="col" className="px-6 py-3 text-left text-xs font-medium text-text-secondary uppercase tracking-wider">
-                        User
+                        Foydalanuvchi
                       </th>
                       <th scope="col" className="px-6 py-3 text-left text-xs font-medium text-text-secondary uppercase tracking-wider">
-                        Role
+                        Rol
                       </th>
                       <th scope="col" className="px-6 py-3 text-left text-xs font-medium text-text-secondary uppercase tracking-wider">
-                        Status
+                        Holati
                       </th>
                       <th scope="col" className="px-6 py-3 text-left text-xs font-medium text-text-secondary uppercase tracking-wider">
-                        Registration Date
+                        Ro'yxatdan o'tgan sana
                       </th>
                       <th scope="col" className="px-6 py-3 text-right text-xs font-medium text-text-secondary uppercase tracking-wider">
-                        Actions
+                        Amallar
                       </th>
                     </tr>
                   </thead>
@@ -263,7 +263,7 @@ const AdminUserManagementPage: React.FC = () => {
                             onClick={() => handleViewUser(user)}
                             className="text-primary hover:text-primary/80 mr-4"
                           >
-                            View
+                            Ko'rish
                           </button>
                           <button
                             onClick={() => handleToggleStatus(user.id)}
@@ -271,7 +271,7 @@ const AdminUserManagementPage: React.FC = () => {
                               user.status === 'Active' ? 'text-red-600 hover:text-red-900' : 'text-green-600 hover:text-green-900'
                             }`}
                           >
-                            {user.status === 'Active' ? 'Deactivate' : 'Activate'}
+                            {user.status === 'Active' ? 'Ochirib qoyish' : 'Yoqish'}
                           </button>
                         </td>
                       </tr>
@@ -294,7 +294,7 @@ const AdminUserManagementPage: React.FC = () => {
                   currentPage === 1 ? 'text-gray-300 cursor-not-allowed' : 'text-text-secondary hover:bg-gray-50'
                 }`}
               >
-                <span className="sr-only">Previous</span>
+                <span className="sr-only">Oldingi</span>
                 <svg className="h-5 w-5" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20" fill="currentColor" aria-hidden="true">
                   <path fillRule="evenodd" d="M12.707 5.293a1 1 0 010 1.414L9.414 10l3.293 3.293a1 1 0 01-1.414 1.414l-4-4a1 1 0 010-1.414l4-4a1 1 0 011.414 0z" clipRule="evenodd" />
                 </svg>
@@ -321,7 +321,7 @@ const AdminUserManagementPage: React.FC = () => {
                   currentPage === totalPages ? 'text-gray-300 cursor-not-allowed' : 'text-text-secondary hover:bg-gray-50'
                 }`}
               >
-                <span className="sr-only">Next</span>
+                <span className="sr-only">Keyingi</span>
                 <svg className="h-5 w-5" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20" fill="currentColor" aria-hidden="true">
                   <path fillRule="evenodd" d="M7.293 14.707a1 1 0 010-1.414L10.586 10 7.293 6.707a1 1 0 011.414-1.414l4 4a1 1 0 010 1.414l-4 4a1 1 0 01-1.414 0z" clipRule="evenodd" />
                 </svg>
@@ -348,28 +348,28 @@ const AdminUserManagementPage: React.FC = () => {
                     </div>
                     <div className="mt-3 text-center sm:mt-0 sm:ml-4 sm:text-left">
                       <h3 className="text-lg leading-6 font-medium text-text-primary" id="modal-title">
-                        User Details
+                        Foydalanuvchi tafsilotlari
                       </h3>
                       <div className="mt-4">
                         <div className="grid grid-cols-2 gap-4">
                           <div>
-                            <p className="text-sm text-text-secondary">Name</p>
+                            <p className="text-sm text-text-secondary">Ism</p>
                             <p className="text-sm font-medium text-text-primary">{selectedUser.name}</p>
                           </div>
                           <div>
-                            <p className="text-sm text-text-secondary">Email</p>
+                            <p className="text-sm text-text-secondary">Elektron pochta</p>
                             <p className="text-sm font-medium text-text-primary">{selectedUser.email}</p>
                           </div>
                           <div>
-                            <p className="text-sm text-text-secondary">Role</p>
+                            <p className="text-sm text-text-secondary">Rol</p>
                             <p className="text-sm font-medium text-text-primary">{selectedUser.role}</p>
                           </div>
                           <div>
-                            <p className="text-sm text-text-secondary">Status</p>
+                            <p className="text-sm text-text-secondary">Holati</p>
                             <p className="text-sm font-medium text-text-primary">{selectedUser.status}</p>
                           </div>
                           <div>
-                            <p className="text-sm text-text-secondary">Registration Date</p>
+                            <p className="text-sm text-text-secondary">Ro'yxatdan o'tgan sana</p>
                             <p className="text-sm font-medium text-text-primary">{selectedUser.registrationDate}</p>
                           </div>
                         </div>
@@ -383,7 +383,7 @@ const AdminUserManagementPage: React.FC = () => {
                     className="w-full inline-flex justify-center rounded-md border border-transparent shadow-sm px-4 py-2 bg-primary text-base font-medium text-white hover:bg-primary/90 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-primary sm:ml-3 sm:w-auto sm:text-sm"
                     onClick={() => setShowUserModal(false)}
                   >
-                    Close
+                    Yopish
                   </button>
                   <button
                     type="button"
@@ -397,7 +397,7 @@ const AdminUserManagementPage: React.FC = () => {
                       setShowUserModal(false);
                     }}
                   >
-                    {selectedUser.status === 'Active' ? 'Deactivate User' : 'Activate User'}
+                    {selectedUser.status === 'Active' ? 'Foydalanuvchini ochirib qoyish' : 'Foydalanuvchini yoqish'}
                   </button>
                 </div>
               </div>

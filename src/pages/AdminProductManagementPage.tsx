@@ -138,12 +138,12 @@ const AdminProductManagementPage: React.FC = () => {
   return (
     <div className="container mx-auto px-4 py-8">
       <div className="flex justify-between items-center mb-6">
-        <h1 className="text-2xl font-bold text-gray-800">Product Management</h1>
+        <h1 className="text-2xl font-bold text-gray-800">Mahsulotlarni boshqarish</h1>
         <Link 
-          to="/admin-dashboard" 
+          to="/app/admin-dashboard" 
           className="bg-gray-200 hover:bg-gray-300 text-gray-700 font-semibold py-2 px-4 rounded"
         >
-          Back to Dashboard
+          Boshqaruv paneliga qaytish
         </Link>
       </div>
 
@@ -151,59 +151,59 @@ const AdminProductManagementPage: React.FC = () => {
       <div className="bg-white rounded-lg shadow-md p-6 mb-6">
         <div className="grid grid-cols-1 md:grid-cols-4 gap-4">
           <div>
-            <label htmlFor="search" className="block text-sm font-medium text-gray-700 mb-1">Search</label>
+            <label htmlFor="search" className="block text-sm font-medium text-gray-700 mb-1">Qidirish</label>
             <input
               type="text"
               id="search"
               className="w-full border border-gray-300 rounded-md px-3 py-2"
-              placeholder="Search by name or farmer..."
+              placeholder="Nomi yoki fermer bo'yicha qidirish..."
               value={searchTerm}
               onChange={(e) => setSearchTerm(e.target.value)}
             />
           </div>
           <div>
-            <label htmlFor="category" className="block text-sm font-medium text-gray-700 mb-1">Category</label>
+            <label htmlFor="category" className="block text-sm font-medium text-gray-700 mb-1">Kategoriya</label>
             <select
               id="category"
               className="w-full border border-gray-300 rounded-md px-3 py-2"
               value={filterCategory}
               onChange={(e) => setFilterCategory(e.target.value)}
             >
-              <option value="">All Categories</option>
+              <option value="">Barcha kategoriyalar</option>
               {categories.map(category => (
                 <option key={category} value={category}>{category}</option>
               ))}
             </select>
           </div>
           <div>
-            <label htmlFor="status" className="block text-sm font-medium text-gray-700 mb-1">Status</label>
+            <label htmlFor="status" className="block text-sm font-medium text-gray-700 mb-1">Holati</label>
             <select
               id="status"
               className="w-full border border-gray-300 rounded-md px-3 py-2"
               value={filterStatus}
               onChange={(e) => setFilterStatus(e.target.value)}
             >
-              <option value="">All Statuses</option>
-              <option value="active">Active</option>
-              <option value="pending">Pending</option>
-              <option value="rejected">Rejected</option>
+              <option value="">Barcha holatlar</option>
+              <option value="active">Faol</option>
+              <option value="pending">Kutilmoqda</option>
+              <option value="rejected">Rad etilgan</option>
             </select>
           </div>
           <div>
-            <label htmlFor="sort" className="block text-sm font-medium text-gray-700 mb-1">Sort By</label>
+            <label htmlFor="sort" className="block text-sm font-medium text-gray-700 mb-1">Saralash</label>
             <select
               id="sort"
               className="w-full border border-gray-300 rounded-md px-3 py-2"
               value={sortBy}
               onChange={(e) => setSortBy(e.target.value)}
             >
-              <option value="">Default</option>
-              <option value="name-asc">Name (A-Z)</option>
-              <option value="name-desc">Name (Z-A)</option>
-              <option value="price-asc">Price (Low to High)</option>
-              <option value="price-desc">Price (High to Low)</option>
-              <option value="date-asc">Date Added (Oldest)</option>
-              <option value="date-desc">Date Added (Newest)</option>
+              <option value="">Standart</option>
+              <option value="name-asc">Nomi (A-Z)</option>
+              <option value="name-desc">Nomi (Z-A)</option>
+              <option value="price-asc">Narxi (Pastdan yuqoriga)</option>
+              <option value="price-desc">Narxi (Yuqoridan pastga)</option>
+              <option value="date-asc">Qo'shilgan sana (Eng eski)</option>
+              <option value="date-desc">Qo'shilgan sana (Eng yangi)</option>
             </select>
           </div>
         </div>
@@ -215,13 +215,13 @@ const AdminProductManagementPage: React.FC = () => {
           <table className="min-w-full divide-y divide-gray-200">
             <thead className="bg-gray-50">
               <tr>
-                <th className="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">Product</th>
-                <th className="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">Category</th>
-                <th className="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">Price</th>
-                <th className="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">Stock</th>
-                <th className="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">Farmer</th>
-                <th className="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">Status</th>
-                <th className="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">Actions</th>
+                <th className="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">Mahsulot</th>
+                <th className="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">Kategoriya</th>
+                <th className="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">Narxi</th>
+                <th className="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">Miqdori</th>
+                <th className="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">Fermer</th>
+                <th className="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">Holati</th>
+                <th className="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">Amallar</th>
               </tr>
             </thead>
             <tbody className="bg-white divide-y divide-gray-200">
@@ -240,7 +240,7 @@ const AdminProductManagementPage: React.FC = () => {
                       </div>
                     </td>
                     <td className="px-6 py-4 whitespace-nowrap text-sm text-gray-500">{product.category}</td>
-                    <td className="px-6 py-4 whitespace-nowrap text-sm text-gray-500">${product.price.toFixed(2)}</td>
+                    <td className="px-6 py-4 whitespace-nowrap text-sm text-gray-500">{product.price.toFixed(2)} so'm</td>
                     <td className="px-6 py-4 whitespace-nowrap text-sm text-gray-500">{product.stock}</td>
                     <td className="px-6 py-4 whitespace-nowrap text-sm text-gray-500">{product.farmerName}</td>
                     <td className="px-6 py-4 whitespace-nowrap">
@@ -256,7 +256,7 @@ const AdminProductManagementPage: React.FC = () => {
                         onClick={() => openProductModal(product)}
                         className="text-indigo-600 hover:text-indigo-900 mr-3"
                       >
-                        View
+                        Ko'rish
                       </button>
                       <div className="inline-block relative">
                         <select
@@ -264,16 +264,16 @@ const AdminProductManagementPage: React.FC = () => {
                           onChange={(e) => handleStatusChange(product.id, e.target.value as 'active' | 'pending' | 'rejected')}
                           className="text-sm border border-gray-300 rounded px-2 py-1 mr-3"
                         >
-                          <option value="active">Active</option>
-                          <option value="pending">Pending</option>
-                          <option value="rejected">Rejected</option>
+                          <option value="active">Faol</option>
+                          <option value="pending">Kutilmoqda</option>
+                          <option value="rejected">Rad etilgan</option>
                         </select>
                       </div>
                       <button 
                         onClick={() => handleDeleteProduct(product.id)}
                         className="text-red-600 hover:text-red-900"
                       >
-                        Delete
+                        O'chirish
                       </button>
                     </td>
                   </tr>
@@ -281,7 +281,7 @@ const AdminProductManagementPage: React.FC = () => {
               ) : (
                 <tr>
                   <td colSpan={7} className="px-6 py-4 text-center text-gray-500">
-                    No products found matching the criteria
+                    Mezonlarga mos mahsulotlar topilmadi
                   </td>
                 </tr>
               )}
@@ -295,7 +295,7 @@ const AdminProductManagementPage: React.FC = () => {
         <div className="fixed inset-0 bg-gray-600 bg-opacity-50 flex items-center justify-center z-50">
           <div className="bg-white rounded-lg shadow-xl max-w-4xl w-full mx-4 overflow-hidden">
             <div className="px-6 py-4 border-b border-gray-200 flex justify-between items-center">
-              <h3 className="text-lg font-semibold text-gray-900">Product Details</h3>
+              <h3 className="text-lg font-semibold text-gray-900">Mahsulot tafsilotlari</h3>
               <button 
                 onClick={() => setIsModalOpen(false)}
                 className="text-gray-400 hover:text-gray-500"
@@ -320,19 +320,19 @@ const AdminProductManagementPage: React.FC = () => {
                   
                   <div className="grid grid-cols-2 gap-4 mb-4">
                     <div>
-                      <p className="text-sm text-gray-500">Category</p>
+                      <p className="text-sm text-gray-500">Kategoriya</p>
                       <p className="font-medium">{currentProduct.category}</p>
                     </div>
                     <div>
-                      <p className="text-sm text-gray-500">Price</p>
-                      <p className="font-medium">${currentProduct.price.toFixed(2)}</p>
+                      <p className="text-sm text-gray-500">Narxi</p>
+                      <p className="font-medium">{currentProduct.price.toFixed(2)} so'm</p>
                     </div>
                     <div>
-                      <p className="text-sm text-gray-500">Stock</p>
-                      <p className="font-medium">{currentProduct.stock} units</p>
+                      <p className="text-sm text-gray-500">Miqdori</p>
+                      <p className="font-medium">{currentProduct.stock} dona</p>
                     </div>
                     <div>
-                      <p className="text-sm text-gray-500">Status</p>
+                      <p className="text-sm text-gray-500">Holati</p>
                       <p className={`font-medium ${
                         currentProduct.status === 'active' ? 'text-green-600' : 
                         currentProduct.status === 'pending' ? 'text-yellow-600' : 
@@ -344,12 +344,12 @@ const AdminProductManagementPage: React.FC = () => {
                   </div>
                   
                   <div className="mb-4">
-                    <p className="text-sm text-gray-500">Farmer</p>
+                    <p className="text-sm text-gray-500">Fermer</p>
                     <p className="font-medium">{currentProduct.farmerName}</p>
                   </div>
                   
                   <div>
-                    <p className="text-sm text-gray-500">Added On</p>
+                    <p className="text-sm text-gray-500">Qo'shilgan sana</p>
                     <p className="font-medium">
                       {new Date(currentProduct.createdAt).toLocaleDateString('en-US', {
                         year: 'numeric',
@@ -366,7 +366,7 @@ const AdminProductManagementPage: React.FC = () => {
                 onClick={() => setIsModalOpen(false)}
                 className="bg-gray-200 hover:bg-gray-300 text-gray-700 font-semibold py-2 px-4 rounded mr-2"
               >
-                Close
+                Yopish
               </button>
               <select
                 value={currentProduct.status}
@@ -376,9 +376,9 @@ const AdminProductManagementPage: React.FC = () => {
                 }}
                 className="border border-gray-300 rounded px-3 py-2 mr-2"
               >
-                <option value="active">Set Active</option>
-                <option value="pending">Set Pending</option>
-                <option value="rejected">Set Rejected</option>
+                <option value="active">Faol qilish</option>
+                <option value="pending">Kutilmoqda qilish</option>
+                <option value="rejected">Rad etilgan qilish</option>
               </select>
               <button 
                 onClick={() => {
@@ -387,7 +387,7 @@ const AdminProductManagementPage: React.FC = () => {
                 }}
                 className="bg-red-600 hover:bg-red-700 text-white font-semibold py-2 px-4 rounded"
               >
-                Delete Product
+                Mahsulotni o'chirish
               </button>
             </div>
           </div>

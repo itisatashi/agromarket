@@ -1,43 +1,114 @@
-# Getting Started with Create React App
+# AgroMarket - O'zbekiston fermerlar va xaridorlar uchun onlayn bozor
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+<p style="text-align: center;">
+  <img src="src/assets/logo.png" alt="AgroMarket logo" width="200"/>
+</p>
 
-## Available Scripts
+AgroMarket - bu O'zbekiston fermerlarini to'g'ridan-to'g'ri iste'molchilar bilan bog'laydigan innovatsion onlayn platforma. Ushbu loyiha mahalliy qishloq xo'jaligi mahsulotlarini sotib olish va sotish jarayonini soddalashtirish, oziq-ovqat tizimini barqarorlashtirish va qishloq jamiyatlarini qo'llab-quvvatlashga qaratilgan.
 
-In the project directory, you can run:
+## Asosiy xususiyatlar
 
-### `npm start`
+### Fermerlar uchun
+- 🌱 Mahsulotlarni qo'shish va boshqarish
+- 📊 Sotuvlar va daromadlar analitikasi
+- 📦 Buyurtmalarni boshqarish
+- 💰 To'lovlarni kuzatish
+- 👤 Profil va ferma ma'lumotlarini sozlash
 
-Runs the app in the development mode.\
-Open [http://localhost:3000](http://localhost:3000) to view it in the browser.
+### Xaridorlar uchun
+- 🛒 Mahalliy va organik mahsulotlarni qidirish va sotib olish
+- 📍 Yaqin atrofdagi fermerlarni topish
+- 🚚 Yetkazib berish yoki olib ketish variantlarini tanlash
+- 💳 Xavfsiz to'lov usullari
+- 📱 Buyurtmalarni kuzatish
 
-The page will reload if you make edits.\
-You will also see any lint errors in the console.
+## Texnologiyalar
+
+AgroMarket quyidagi texnologiyalar asosida qurilgan:
+
+- **Frontend**: React, TypeScript, TailwindCSS
+- **State Management**: React Context API
+- **Routing**: React Router
+- **UI Components**: Heroicons, Custom Components
+- **Responsive Design**: Mobile-first approach
+
+## Qo'llanma
+
+Loyihani o'z kompyuteringizda ishga tushirish uchun quyidagi ko'rsatmalarni bajaring.
+
+### Talab qilinadigan dasturlar
+
+- Node.js (v14.0.0 yoki undan yuqori)
+- npm yoki yarn
+
+### O'rnatish
+
+1. Loyihani klonlang:
+   ```bash
+   git clone https://github.com/itisatashi/agromarket.git
+   cd agromarket
+   ```
+
+2. Kerakli paketlarni o'rnating:
+   ```bash
+   npm install
+   # yoki
+   yarn install
+   ```
+
+3. Loyihani ishga tushiring:
+   ```bash
+   npm start
+   # yoki
+   yarn start
+   ```
+
+4. Brauzeringizda [http://localhost:3000](http://localhost:3000) sahifasini oching.
+
+## Loyiha tuzilishi
+
+```
+/src
+  /assets        # Rasmlar, ikonkalar va boshqa statik fayllar
+  /components    # Qayta ishlatiladigan UI komponentlari
+    /layout      # Asosiy layout komponentlari (Header, Footer, etc.)
+    /ui          # Kichik UI komponentlari (Button, Card, etc.)
+  /contexts      # React context providers
+  /hooks         # Custom React hooks
+  /pages         # Asosiy sahifalar
+  /services      # API va boshqa xizmatlar
+  /utils         # Yordamchi funksiyalar
+```
+
+## Qo'shimcha buyruqlar
 
 ### `npm test`
 
-Launches the test runner in the interactive watch mode.\
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
+Test rejimida testlarni ishga tushiradi.
 
 ### `npm run build`
 
-Builds the app for production to the `build` folder.\
-It correctly bundles React in production mode and optimizes the build for the best performance.
-
-The build is minified and the filenames include the hashes.\
-Your app is ready to be deployed!
-
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
+Loyihani production rejimida `build` papkasiga yig'adi.
 
 ### `npm run eject`
 
-**Note: this is a one-way operation. Once you `eject`, you can’t go back!**
+**Eslatma: bu bir tomonlama operatsiya. `eject` qilgandan so'ng, orqaga qayta olmaysiz!**
 
-If you aren’t satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
+Agar konfiguratsiya va build vositalarini to'liq nazorat qilishni istasangiz, `eject` buyrug'ini ishlatishingiz mumkin.
 
-Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you’re on your own.
+## Litsenziya
 
-You don’t have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn’t feel obligated to use this feature. However we understand that this tool wouldn’t be useful if you couldn’t customize it when you are ready for it.
+Bu loyiha MIT litsenziyasi ostida tarqatilgan. Batafsil ma'lumot uchun `LICENSE` faylini ko'ring.
+
+## Muallif
+
+AgroMarket - Ideathon 2025 uchun ishlab chiqilgan loyiha.
+
+---
+
+<p  style="text-align: center;">
+  <b>AgroMarket</b> - Mahalliy fermerlarni qo'llab-quvvatlash, sog'lom ovqatlanishni rag'batlantirish
+</p>
 
 ## Learn More
 

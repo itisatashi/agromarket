@@ -1,7 +1,7 @@
 import React, { useState } from 'react';
 import { Link } from 'react-router-dom';
 
-// Mock data for admin dashboard
+// Admin dashboard uchun namunali ma'lumotlar
 const mockStats = {
   totalUsers: 245,
   farmers: 78,
@@ -12,23 +12,23 @@ const mockStats = {
   revenue: 15742.50
 };
 
-// Mock data for recent activity
+// So'nggi faoliyat uchun namunali ma'lumotlar
 const mockActivity = [
   {
     id: 1,
     type: 'user_registration',
     user: 'Sarah Johnson',
-    role: 'Farmer',
+    role: 'Fermer',
     date: '2025-05-04T14:32:00Z',
-    details: 'New farmer registration'
+    details: 'Yangi fermer ro\'yxatdan o\'tdi'
   },
   {
     id: 2,
     type: 'product_listing',
-    user: 'Green Valley Farm',
-    product: 'Organic Strawberries',
+    user: 'Yashil Vodiy Fermasi',
+    product: 'Organik qulupnay',
     date: '2025-05-04T12:15:00Z',
-    details: 'New product pending approval'
+    details: 'Yangi mahsulot tasdiqlash kutilmoqda'
   },
   {
     id: 3,
@@ -36,32 +36,32 @@ const mockActivity = [
     user: 'Michael Chen',
     amount: 32.47,
     date: '2025-05-04T10:45:00Z',
-    details: 'New order placed'
+    details: 'Yangi buyurtma berildi'
   },
   {
     id: 4,
     type: 'user_registration',
     user: 'David Rodriguez',
-    role: 'Customer',
+    role: 'Xaridor',
     date: '2025-05-03T19:22:00Z',
-    details: 'New customer registration'
+    details: 'Yangi xaridor ro\'yxatdan o\'tdi'
   },
   {
     id: 5,
     type: 'product_listing',
-    user: 'Sunny Side Farm',
-    product: 'Farm Fresh Eggs',
+    user: 'Quyoshli Ferma',
+    product: 'Ferma toza tuxumlari',
     date: '2025-05-03T16:08:00Z',
-    details: 'Product approved'
+    details: 'Mahsulot tasdiqlandi'
   }
 ];
 
-// Mock data for monthly stats
+// Oylik statistika uchun namunali ma'lumotlar
 const mockMonthlyData = {
   users: [12, 18, 22, 15, 24, 33, 28, 35, 41, 46, 52, 58],
   products: [25, 32, 38, 42, 48, 55, 62, 68, 75, 82, 90, 98],
   orders: [42, 48, 55, 62, 70, 78, 85, 92, 100, 110, 120, 130],
-  months: ['May', 'Jun', 'Jul', 'Aug', 'Sep', 'Oct', 'Nov', 'Dec', 'Jan', 'Feb', 'Mar', 'Apr']
+  months: ['May', 'Iyun', 'Iyul', 'Avg', 'Sen', 'Okt', 'Noy', 'Dek', 'Yan', 'Fev', 'Mar', 'Apr']
 };
 
 const AdminDashboardPage: React.FC = () => {
@@ -71,13 +71,13 @@ const AdminDashboardPage: React.FC = () => {
     <div className="bg-background min-h-screen">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-8">
         <div className="flex flex-col md:flex-row md:items-center md:justify-between">
-          <h1 className="text-3xl font-extrabold text-text-primary">Admin Dashboard</h1>
+          <h1 className="text-3xl font-extrabold text-text-primary">Admin Boshqaruv Paneli</h1>
           <div className="mt-4 md:mt-0 flex space-x-4">
             <Link to="/app/admin-users" className="btn-secondary">
-              Manage Users
+              Foydalanuvchilarni boshqarish
             </Link>
             <Link to="/app/admin-products" className="btn-secondary">
-              Manage Products
+              Mahsulotlarni boshqarish
             </Link>
           </div>
         </div>
@@ -95,7 +95,7 @@ const AdminDashboardPage: React.FC = () => {
                 </div>
                 <div className="ml-5 w-0 flex-1">
                   <dl>
-                    <dt className="text-sm font-medium text-text-secondary truncate">Total Users</dt>
+                    <dt className="text-sm font-medium text-text-secondary truncate">Jami foydalanuvchilar</dt>
                     <dd>
                       <div className="text-lg font-medium text-text-primary">{mockStats.totalUsers}</div>
                     </dd>
@@ -103,13 +103,13 @@ const AdminDashboardPage: React.FC = () => {
                 </div>
               </div>
               <div className="mt-4 text-sm">
-                <span className="text-text-secondary">{mockStats.farmers} Farmers, {mockStats.customers} Customers</span>
+                <span className="text-text-secondary">{mockStats.farmers} Fermerlar, {mockStats.customers} Xaridorlar</span>
               </div>
             </div>
             <div className="bg-gray-50 px-5 py-3">
               <div className="text-sm">
                 <Link to="/app/admin-users" className="font-medium text-primary hover:text-primary/80">
-                  View all users
+                  Barcha foydalanuvchilarni ko'rish
                 </Link>
               </div>
             </div>
@@ -126,7 +126,7 @@ const AdminDashboardPage: React.FC = () => {
                 </div>
                 <div className="ml-5 w-0 flex-1">
                   <dl>
-                    <dt className="text-sm font-medium text-text-secondary truncate">Total Products</dt>
+                    <dt className="text-sm font-medium text-text-secondary truncate">Jami mahsulotlar</dt>
                     <dd>
                       <div className="text-lg font-medium text-text-primary">{mockStats.totalProducts}</div>
                     </dd>
@@ -135,14 +135,14 @@ const AdminDashboardPage: React.FC = () => {
               </div>
               <div className="mt-4 text-sm">
                 <span className="text-yellow-600 bg-yellow-100 px-2 py-1 rounded-full text-xs font-medium">
-                  {mockStats.pendingProducts} pending approval
+                  {mockStats.pendingProducts} tasdiqlash kutilmoqda
                 </span>
               </div>
             </div>
             <div className="bg-gray-50 px-5 py-3">
               <div className="text-sm">
                 <Link to="/admin-products" className="font-medium text-primary hover:text-primary/80">
-                  View all products
+                  Barcha mahsulotlarni ko'rish
                 </Link>
               </div>
             </div>
@@ -159,7 +159,7 @@ const AdminDashboardPage: React.FC = () => {
                 </div>
                 <div className="ml-5 w-0 flex-1">
                   <dl>
-                    <dt className="text-sm font-medium text-text-secondary truncate">Total Orders</dt>
+                    <dt className="text-sm font-medium text-text-secondary truncate">Jami buyurtmalar</dt>
                     <dd>
                       <div className="text-lg font-medium text-text-primary">{mockStats.totalOrders}</div>
                     </dd>
@@ -171,14 +171,14 @@ const AdminDashboardPage: React.FC = () => {
                   <svg className="inline h-4 w-4 mr-1" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20" fill="currentColor">
                     <path fillRule="evenodd" d="M12 7a1 1 0 110-2h5a1 1 0 011 1v5a1 1 0 11-2 0V8.414l-4.293 4.293a1 1 0 01-1.414 0L8 10.414l-4.293 4.293a1 1 0 01-1.414-1.414l5-5a1 1 0 011.414 0L11 10.586 14.586 7H12z" clipRule="evenodd" />
                   </svg>
-                  12% increase
+                  12% o'sish
                 </span>
               </div>
             </div>
             <div className="bg-gray-50 px-5 py-3">
               <div className="text-sm">
                 <a href="#" className="font-medium text-primary hover:text-primary/80">
-                  View all orders
+                  Barcha buyurtmalarni ko'rish
                 </a>
               </div>
             </div>
@@ -195,9 +195,9 @@ const AdminDashboardPage: React.FC = () => {
                 </div>
                 <div className="ml-5 w-0 flex-1">
                   <dl>
-                    <dt className="text-sm font-medium text-text-secondary truncate">Total Revenue</dt>
+                    <dt className="text-sm font-medium text-text-secondary truncate">Jami daromad</dt>
                     <dd>
-                      <div className="text-lg font-medium text-text-primary">${mockStats.revenue.toFixed(2)}</div>
+                      <div className="text-lg font-medium text-text-primary">{mockStats.revenue.toFixed(2)} so'm</div>
                     </dd>
                   </dl>
                 </div>
@@ -207,14 +207,14 @@ const AdminDashboardPage: React.FC = () => {
                   <svg className="inline h-4 w-4 mr-1" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20" fill="currentColor">
                     <path fillRule="evenodd" d="M12 7a1 1 0 110-2h5a1 1 0 011 1v5a1 1 0 11-2 0V8.414l-4.293 4.293a1 1 0 01-1.414 0L8 10.414l-4.293 4.293a1 1 0 01-1.414-1.414l5-5a1 1 0 011.414 0L11 10.586 14.586 7H12z" clipRule="evenodd" />
                   </svg>
-                  8.5% increase
+                  8.5% o'sish
                 </span>
               </div>
             </div>
             <div className="bg-gray-50 px-5 py-3">
               <div className="text-sm">
                 <a href="#" className="font-medium text-primary hover:text-primary/80">
-                  View financial reports
+                  Moliyaviy hisobotlarni ko'rish
                 </a>
               </div>
             </div>
@@ -223,7 +223,7 @@ const AdminDashboardPage: React.FC = () => {
 
         {/* Recent Activity */}
         <div className="mt-8">
-          <h2 className="text-lg font-medium text-text-primary mb-4">Recent Activity</h2>
+          <h2 className="text-lg font-medium text-text-primary mb-4">So'nggi faoliyat</h2>
           <div className="bg-white shadow overflow-hidden sm:rounded-md">
             <ul className="divide-y divide-gray-200">
               {mockActivity.map((activity) => (
@@ -256,13 +256,13 @@ const AdminDashboardPage: React.FC = () => {
                           <div className="text-sm font-medium text-text-primary">{activity.details}</div>
                           <div className="text-sm text-text-secondary">
                             {activity.type === 'user_registration' && (
-                              <span>User: {activity.user} ({activity.role})</span>
+                              <span>Foydalanuvchi: {activity.user} ({activity.role})</span>
                             )}
                             {activity.type === 'product_listing' && (
-                              <span>Product: {activity.product} by {activity.user}</span>
+                              <span>Mahsulot: {activity.product} - {activity.user}</span>
                             )}
                             {activity.type === 'order' && (
-                              <span>Order: ${activity.amount} by {activity.user}</span>
+                              <span>Buyurtma: {activity.amount} so'm - {activity.user}</span>
                             )}
                           </div>
                         </div>
@@ -283,7 +283,7 @@ const AdminDashboardPage: React.FC = () => {
         {/* Analytics Section */}
         <div className="mt-8">
           <div className="flex flex-col sm:flex-row sm:items-center sm:justify-between">
-            <h2 className="text-lg font-medium text-text-primary">Analytics</h2>
+            <h2 className="text-lg font-medium text-text-primary">Tahlillar</h2>
             <div className="mt-4 sm:mt-0">
               <div className="flex rounded-md shadow-sm">
                 <button
@@ -295,7 +295,7 @@ const AdminDashboardPage: React.FC = () => {
                       : 'bg-white text-text-secondary hover:bg-gray-50'
                   } relative inline-flex items-center px-4 py-2 rounded-l-md border border-gray-300 text-sm font-medium focus:z-10 focus:outline-none focus:ring-1 focus:ring-primary focus:border-primary`}
                 >
-                  Week
+                  Hafta
                 </button>
                 <button
                   type="button"
@@ -306,7 +306,7 @@ const AdminDashboardPage: React.FC = () => {
                       : 'bg-white text-text-secondary hover:bg-gray-50'
                   } relative inline-flex items-center px-4 py-2 border-t border-b border-gray-300 text-sm font-medium focus:z-10 focus:outline-none focus:ring-1 focus:ring-primary focus:border-primary`}
                 >
-                  Month
+                  Oy
                 </button>
                 <button
                   type="button"
@@ -317,7 +317,7 @@ const AdminDashboardPage: React.FC = () => {
                       : 'bg-white text-text-secondary hover:bg-gray-50'
                   } relative inline-flex items-center px-4 py-2 rounded-r-md border border-gray-300 text-sm font-medium focus:z-10 focus:outline-none focus:ring-1 focus:ring-primary focus:border-primary`}
                 >
-                  Year
+                  Yil
                 </button>
               </div>
             </div>
@@ -328,7 +328,7 @@ const AdminDashboardPage: React.FC = () => {
             <div className="bg-white overflow-hidden shadow rounded-lg">
               <div className="p-5">
                 <div className="flex items-center justify-between">
-                  <h3 className="text-lg font-medium text-text-primary">User Growth</h3>
+                  <h3 className="text-lg font-medium text-text-primary">Foydalanuvchilar o'sishi</h3>
                   <span className="text-green-600 text-sm font-medium">+24%</span>
                 </div>
                 <div className="mt-4 h-48 flex items-end space-x-2">
@@ -355,7 +355,7 @@ const AdminDashboardPage: React.FC = () => {
             <div className="bg-white overflow-hidden shadow rounded-lg">
               <div className="p-5">
                 <div className="flex items-center justify-between">
-                  <h3 className="text-lg font-medium text-text-primary">Product Growth</h3>
+                  <h3 className="text-lg font-medium text-text-primary">Mahsulotlar o'sishi</h3>
                   <span className="text-green-600 text-sm font-medium">+32%</span>
                 </div>
                 <div className="mt-4 h-48 flex items-end space-x-2">
@@ -382,7 +382,7 @@ const AdminDashboardPage: React.FC = () => {
             <div className="bg-white overflow-hidden shadow rounded-lg">
               <div className="p-5">
                 <div className="flex items-center justify-between">
-                  <h3 className="text-lg font-medium text-text-primary">Order Growth</h3>
+                  <h3 className="text-lg font-medium text-text-primary">Buyurtmalar o'sishi</h3>
                   <span className="text-green-600 text-sm font-medium">+18%</span>
                 </div>
                 <div className="mt-4 h-48 flex items-end space-x-2">
