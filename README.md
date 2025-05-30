@@ -69,15 +69,9 @@ Loyihani o'z kompyuteringizda ishga tushirish uchun quyidagi ko'rsatmalarni baja
 
 ```
 /src
-  /assets        # Rasmlar, ikonkalar va boshqa statik fayllar
   /components    # Qayta ishlatiladigan UI komponentlari
     /layout      # Asosiy layout komponentlari (Header, Footer, etc.)
-    /ui          # Kichik UI komponentlari (Button, Card, etc.)
-  /contexts      # React context providers
-  /hooks         # Custom React hooks
   /pages         # Asosiy sahifalar
-  /services      # API va boshqa xizmatlar
-  /utils         # Yordamchi funksiyalar
 ```
 
 ## Qo'shimcha buyruqlar
