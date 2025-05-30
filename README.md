@@ -90,14 +90,6 @@ Loyihani production rejimida `build` papkasiga yig'adi.
 
 Agar konfiguratsiya va build vositalarini to'liq nazorat qilishni istasangiz, `eject` buyrug'ini ishlatishingiz mumkin.
 
-## Litsenziya
-
-Bu loyiha MIT litsenziyasi ostida tarqatilgan. Batafsil ma'lumot uchun `LICENSE` faylini ko'ring.
-
-## Muallif
-
-AgroMarket - Ideathon 2025 uchun ishlab chiqilgan loyiha.
-
 ---
 
 <p  style="text-align: center;">
