@@ -1,4 +1,4 @@
-# AgroMarket - O'zbekiston fermerlar va xaridorlar uchun onlayn bozor
+# AgroMarket - Qoraqalpogʻiston fermerlar va xaridorlar uchun onlayn bozor
 
 <p style="text-align: center;">
   <img src="src/assets/logo.png" alt="AgroMarket logo" width="200"/>
